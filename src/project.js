@@ -19,4 +19,9 @@ export default class Project {
         }
         return false;
     }
+
+    // Add a setter to change the project's title
+    set setTitle(newTitle) {
+        this.title = newTitle;
+    }
 }
