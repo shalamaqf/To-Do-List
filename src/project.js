@@ -20,6 +20,11 @@ export default class Project {
         return false;
     }
 
+    // Add a method to get todos list in the toDoList array
+    get getTodos() {
+        return this.toDoList;
+    }
+
     // Add a setter to change the project's title
     set setTitle(newTitle) {
         this.title = newTitle;
