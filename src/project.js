@@ -9,4 +9,14 @@ export default class Project {
     addToDo(todo) {
         return this.toDoList.push(todo);
     }
+
+    // Add a method to delete to do in toDoList array
+    deleteToDo(todo) {
+        const index = this.toDoList.indexOf(todo);
+        if (index !== -1) {
+            this.toDoList.splice(index, 1);
+            return true;
+        }
+        return false;
+    }
 }
