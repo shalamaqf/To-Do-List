@@ -4,4 +4,9 @@ export default class Project {
         this.title = title;
         this.toDoList = [];
     }
+
+    // Add a method to add todo in to toDoList array
+    addToDo(todo) {
+        return this.toDoList.push(todo);
+    }
 }
