@@ -33,5 +33,5 @@ export class Project {
 
 // Create a module pattern for project list
 export const projectList = ( function () {
-
+    let projectArr = [];
 })();
