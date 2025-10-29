@@ -2,7 +2,7 @@
 import Project from './project.js';
 
 // Create an array to store projects
-export let projectList = [];
+let projectList = [];
 
 // Create a function to create a project object
 function createProject(title) {
@@ -32,4 +32,9 @@ export function getProject(title) {
         return projectList[index];
     }
     return false;
+}
+
+// Create a function to view the projectList array
+export function viewProjectList() {
+    return projectList.slice();
 }
