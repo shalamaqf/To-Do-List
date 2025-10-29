@@ -12,6 +12,11 @@ export default class Todo {
         this.isComplete = false;
         this.project = "";
     }
+
+    // Add a method to set the todo's new title
+    set setTitle(newTitle) {
+        this.title = newTitle;
+    }
 }
 
 // Create a function to parse the dueDate to date object
