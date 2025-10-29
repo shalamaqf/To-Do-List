@@ -14,3 +14,13 @@ export function addProject(title) {
     const newProject = createProject(title);
     projectList.push(newProject);
 }
+
+// Create a function to delete a project from projectList array
+export function deleteProject(title) {
+    const index = projectList.findIndex(project => project.title === title);
+    if (index !== -1) {
+        projectList.splice(index, 1);
+        return true;
+    }
+    return false;
+}
