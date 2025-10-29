@@ -31,5 +31,7 @@ export class Project {
     }
 }
 
-// Create an array to store the project list
-export let projectList = [];
+// Create a module pattern for project list
+export const projectList = ( function () {
+
+})();
