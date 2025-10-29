@@ -31,7 +31,8 @@ export class Project {
     }
 }
 
-// Create a module pattern for project list
-export const projectList = ( function () {
-    let projectArr = [];
+// Create a module pattern to manage list of project
+export const projectManager = ( function () {
+    // Create an array to store project
+    let projectList = [];
 })();
