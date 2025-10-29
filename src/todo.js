@@ -22,6 +22,11 @@ export default class Todo {
     set setDueDate(newDueDate) {
         this.dueDate = parseDate(newDueDate);
     }
+
+    // Add a method to set the todo's desc
+    set setDesc(desc) {
+        this.desc = desc;
+    }
 }
 
 // Create a function to parse the dueDate to date object
