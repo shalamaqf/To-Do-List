@@ -30,18 +30,3 @@ class Project {
         this.title = newTitle;
     }
 }
-
-// Create a module pattern to manage list of project
-export const projectManager = ( function () {
-    // Create an array to store project
-    let projectList = [];
-
-    // Create a function to create a project object
-    const createProject = function (title) {
-        return new Project(title);
-    }
-
-    return {
-        
-    }
-})();
