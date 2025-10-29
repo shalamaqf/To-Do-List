@@ -1,5 +1,5 @@
 // Create a class to create a project object
-export default class Project {
+export class Project {
     constructor(title) {
         this.title = title;
         this.toDoList = [];
@@ -30,3 +30,6 @@ export default class Project {
         this.title = newTitle;
     }
 }
+
+// Create an array to store the project list
+export let projectList = [];
