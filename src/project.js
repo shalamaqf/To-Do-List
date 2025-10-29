@@ -1,5 +1,5 @@
 // Create a class to create a project object
-export class Project {
+export default class Project {
     constructor(title) {
         this.title = title;
         this.toDoList = [];
