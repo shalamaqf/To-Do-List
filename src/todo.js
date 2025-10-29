@@ -13,3 +13,9 @@ export default class Todo {
         this.project = "";
     }
 }
+
+// Create a function to parse the dueDate to date object
+function parseDate(dueDate) {
+    const parsedDate = parse(dueDate, "yyyy/MM/dd HH:mm", new Date());
+    return isValid(parsedDate) ? parsedDate : null;
+}
