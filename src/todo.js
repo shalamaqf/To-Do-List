@@ -32,6 +32,11 @@ export default class Todo {
     set setPriority(priority) {
         this.priority = priority;
     }
+
+    // Add a method to set the todo's note
+    set setNote(note) {
+        this.note = note;
+    }
 }
 
 // Create a function to parse the dueDate to date object
