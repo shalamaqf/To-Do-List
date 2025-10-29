@@ -37,6 +37,11 @@ export default class Todo {
     set setNote(note) {
         this.note = note;
     }
+
+    // Add a method to set the todo's project
+    set setProject(project) {
+        this.project = project;
+    }
 }
 
 // Create a function to parse the dueDate to date object
