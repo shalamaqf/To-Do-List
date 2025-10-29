@@ -1,5 +1,5 @@
 // Create a class to create a project object
-export class Project {
+class Project {
     constructor(title) {
         this.title = title;
         this.toDoList = [];
@@ -35,4 +35,13 @@ export class Project {
 export const projectManager = ( function () {
     // Create an array to store project
     let projectList = [];
+
+    // Create a function to create a project object
+    const createProject = function (title) {
+        return new Project(title);
+    }
+
+    return {
+        
+    }
 })();
