@@ -24,3 +24,12 @@ export function deleteProject(title) {
     }
     return false;
 }
+
+// Create a function to search a project from projectList array
+export function getProject(title) {
+    const index = projectList.findIndex(project => project.title === title);
+    if (index !== -1) {
+        return projectList[index];
+    }
+    return false;
+}
