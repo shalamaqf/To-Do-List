@@ -9,6 +9,13 @@ function createProject(title) {
     return new Project(title);
 }
 
+// Create a default/global project
+export function createDefaultProject() {
+    const inbox = createProject('inbox');
+    projectList.push(inbox);
+    return inbox;
+}
+
 // Create a function to add a project o projectList array
 export function addProject(title) {
     const newProject = createProject(title);
