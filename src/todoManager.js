@@ -6,3 +6,12 @@ import Todo from './todo.js';
 export function createTodo(title, dueDate) {
     return new Todo(title, dueDate);
 }
+
+// Check and set todo project
+export function setDefaultProject(todo, inbox) {
+    if (todo.project === undefined) {
+        todo.project = inbox;
+        inbox.addToDo(todo);
+    }
+    return;
+}
