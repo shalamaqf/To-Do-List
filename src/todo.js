@@ -7,7 +7,7 @@ export default class Todo {
         this.priority = "";
         this.note = "";
         this.isComplete = false;
-        this.project = "";
+        this.project = undefined;
     }
 
     // Add a method to set the todo's new title
