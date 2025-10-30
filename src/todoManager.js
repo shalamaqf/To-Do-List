@@ -8,7 +8,7 @@ export function createTodo(title, dueDate) {
 }
 
 // Check and set todo project
-export function setDefaultProject(todo, inbox) {
+export function assignToDefaultProject(todo, inbox) {
     if (todo.project === undefined) {
         todo.project = inbox;
         inbox.addToDo(todo);
