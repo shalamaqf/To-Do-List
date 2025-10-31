@@ -1,3 +1,6 @@
+import Project from './project.js';
+import Todo from './todo.js';
+
 // Create a function to serialize the project
 function serializeProject(project) {
     // Create a project plain object
@@ -22,6 +25,30 @@ function serializeProject(project) {
     });
 
     return plainProject;
+}
+
+// Create a function to deserialize a project
+export function deserializeProject(project) {
+    // Create an object project
+    const desProject = new Project(project.title);
+    
+    // Loop each project's todo, to create a todo object that includes project property
+    project.toDoList.forEach(todo => {
+        const desTodo = new Todo(todo.title, todo.dueDate);
+        
+        // Restore the todo's data
+        desTodo.desc = todo.desc;
+        desTodo.priority = todo.priority;
+        desTodo.note = todo.note;
+        desTodo.isComplete = todo.isComplete;
+        desTodo.project = desProject;
+
+        // Push the deserialized todo to the array
+        desProject.addToDo(desTodo);
+    });
+
+    return desProject;
+
 }
 
 // Create a function to stringify a project
