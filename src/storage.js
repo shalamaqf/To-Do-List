@@ -23,3 +23,9 @@ function serializeProject(project) {
 
     return plainProject;
 }
+
+// Create a function to stringify a project
+export function stringifyProject(project) {
+    const projectStr = serializeProject(project);
+    return JSON.stringify(projectStr);
+}
