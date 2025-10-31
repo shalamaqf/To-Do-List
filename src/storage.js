@@ -36,6 +36,11 @@ export function storeProject(project, projectStr) {
 }
 
 // Create a function to delete a project in local storage
-export function deleteProject(project) {
+export function deleteProjectStorage(project) {
     localStorage.removeItem(project.title);
+}
+
+// Create a function to delete a project's todo in local storage
+export function deleteTodoStorage(project, projectStr) {
+    storeProject(project, projectStr);
 }
