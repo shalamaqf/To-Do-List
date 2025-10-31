@@ -20,6 +20,7 @@ export function createDefaultProject() {
 export function addProject(title) {
     const newProject = createProject(title);
     projectList.push(newProject);
+    return newProject;
 }
 
 // Create a function to delete a project from projectList array
