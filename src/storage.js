@@ -49,3 +49,8 @@ export function deleteTodoStorage(project, projectStr) {
 export function viewProjectStorage(project) {
     return localStorage.getItem(project.title);
 }
+
+// Create a function to parse a project from local storage
+export function parseProject(projectStr) {
+    return JSON.parse(projectStr);
+}
