@@ -44,3 +44,8 @@ export function deleteProjectStorage(project) {
 export function deleteTodoStorage(project, projectStr) {
     storeProject(project, projectStr);
 }
+
+// Create a function to view a project from the local storage
+export function viewProjectStorage(project) {
+    return localStorage.getItem(project.title);
+}
