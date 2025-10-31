@@ -29,3 +29,8 @@ export function stringifyProject(project) {
     const projectStr = serializeProject(project);
     return JSON.stringify(projectStr);
 }
+
+// Create a function to store a project to local storage 
+export function storeProject(project, projectStr) {
+    localStorage.setItem(project.title, projectStr);
+}
