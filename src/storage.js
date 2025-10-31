@@ -34,3 +34,8 @@ export function stringifyProject(project) {
 export function storeProject(project, projectStr) {
     localStorage.setItem(project.title, projectStr);
 }
+
+// Create a function to delete a project in local storage
+export function deleteProject(project) {
+    localStorage.removeItem(project.title);
+}
