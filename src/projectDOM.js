@@ -7,8 +7,8 @@ export function renderProjectTitle(project) {
     const deleteProjectBtn = document.createElement("button");
     const renameProjectBtn = document.createElement("button");
 
-    projectTitleDiv.classList.add("projectTitle-container");
-    projectTitleButton.classList.add("projectTitleBtn");
+    projectTitleDiv.className = "projectTitle-container";
+    projectTitleButton.className = "projectTitleBtn";
     projectBtnContainer.className = "projectBtn-container";
     deleteProjectBtn.className = "deleteProject-button";
     renameProjectBtn.className = "renameProject-button";
