@@ -6,10 +6,10 @@ export function renderDefaultProjectTitle() {
     const inboxProject = getProject('Inbox');
     const projectTitleDiv = document.createElement("div");
     const projectTitleButton = document.createElement("button");
-
+   
     projectTitleDiv.className = "projectTitle-container";
     projectTitleButton.className = "projectTitleBtn";
-
+    
     projectTitleButton.textContent = inboxProject.title;
 
     projectTitleDiv.appendChild(projectTitleButton);
