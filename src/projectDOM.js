@@ -2,24 +2,24 @@
 export function renderProjectTitle(project) {
     const projectListContainer = document.querySelector("#projectList-container");
     const projectTitleDiv = document.createElement("div");
-    const projectTitle = document.createElement("h4");
+    const projectTitleButton = document.createElement("button");
     const projectBtnContainer = document.createElement("div");
     const deleteProjectBtn = document.createElement("button");
     const renameProjectBtn = document.createElement("button");
 
     projectTitleDiv.classList.add("projectTitle-container");
-    projectTitle.classList.add("projectTitle");
+    projectTitleButton.classList.add("projectTitleBtn");
     projectBtnContainer.className = "projectBtn-container";
     deleteProjectBtn.className = "deleteProject-button";
     renameProjectBtn.className = "renameProject-button";
 
-    projectTitle.textContent = project.title;
+    projectTitleButton.textContent = project.title;
     deleteProjectBtn.textContent = "-";
     renameProjectBtn.textContent = "✎";
 
     projectBtnContainer.appendChild(renameProjectBtn);
     projectBtnContainer.appendChild(deleteProjectBtn);
-    projectTitleDiv.appendChild(projectTitle);
+    projectTitleDiv.appendChild(projectTitleButton);
     projectTitleDiv.appendChild(projectBtnContainer);
     projectListContainer.appendChild(projectTitleDiv);
     
