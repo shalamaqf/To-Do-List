@@ -1,4 +1,4 @@
-import { getProject, addProject } from './projectManager.js';
+import { getProject, addProject, viewProjectList } from './projectManager.js';
 import { storeProject } from "./storage.js";
 
 // Create a function to render DOM elements for default project's title block
@@ -81,4 +81,19 @@ function createProjectFromModal() {
 function hideModal() {
     const modal_container = document.querySelector(".project.modal-container");
     modal_container.classList.remove("show");
+}
+
+// Create a function add an event listener to add project button
+export function setupAddProject() {
+    const addButton = document.getElementById("add-project-button");
+    const form = document.getElementById("project-form-modal");
+
+    addButton.addEventListener('click', () => {
+        showModal();
+    })
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        createProjectFromModal();
+    })
 }
