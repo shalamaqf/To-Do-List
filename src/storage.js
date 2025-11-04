@@ -52,13 +52,14 @@ export function deserializeProject(project) {
 }
 
 // Create a function to stringify a project
-export function stringifyProject(project) {
+function stringifyProject(project) {
     const projectStr = serializeProject(project);
     return JSON.stringify(projectStr);
 }
 
 // Create a function to store a project to local storage 
-export function storeProject(project, projectStr) {
+export function storeProject(project) {
+    const projectStr = stringifyProject(project);
     localStorage.setItem(project.title, projectStr);
 }
 
