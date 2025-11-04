@@ -68,7 +68,7 @@ function createProjectFromModal() {
     storeProject(project);
 
     // Clear the input field
-    input.value = "";
+    clearInputValue();
 
     // Hide the modal
     hideModal();
@@ -87,6 +87,7 @@ function hideModal() {
 export function setupAddProject() {
     const addButton = document.getElementById("add-project-button");
     const form = document.getElementById("project-form-modal");
+    const cancelButton = document.getElementById("cancel-project-button");
 
     addButton.addEventListener('click', () => {
         showModal();
@@ -95,5 +96,16 @@ export function setupAddProject() {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         createProjectFromModal();
+        console.log(viewProjectList());
     })
+
+    cancelButton.addEventListener('click', () => {
+        hideModal();
+        clearInputValue();
+    })
+}
+
+function clearInputValue() {
+    const input = document.getElementById("project-title");
+    input.value = "";
 }
