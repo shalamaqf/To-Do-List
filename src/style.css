@@ -64,37 +64,35 @@ footer {
     position: fixed;
     display: flex;
     z-index: 1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    inset: 0;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
 
+    visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease-out;
+    transition: visibility 0s linear 0.3s;
 }
 
 .todo.modal-container {
     position: fixed;
     display: flex;
     z-index: 1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    inset: 0;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     
+    visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease-out;
+    transition: visibility 0.3s ease-out;
 }
 
 .project.modal-container.show {
+    visibility: visible;
     opacity: 1;
     pointer-events: auto;
+    transition: opacity 0.3s ease;
 }
