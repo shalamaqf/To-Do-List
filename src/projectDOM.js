@@ -49,13 +49,13 @@ export function renderProjectTitle(project) {
 }
 
 // Create a function to showed up the modal
-export function showModal() {
+function showModal() {
     const modal_container = document.querySelector(".project.modal-container");
     modal_container.classList.add("show");
 }
 
 // Create a function to handle user input
-export function handleUserInput() {
+function createProjectFromModal() {
     // Get the input
     const input = document.getElementById("project-title");
     const projectTitle = input.value;
@@ -72,6 +72,9 @@ export function handleUserInput() {
 
     // Hide the modal
     hideModal();
+
+    // Render the project
+    renderProjectTitle(project);
 }
 
 // Create a function to hide the modal
