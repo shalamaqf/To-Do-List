@@ -1,4 +1,5 @@
-import { getProject } from './projectManager.js';
+import { getProject, addProject } from './projectManager.js';
+import { storeProject } from "./storage.js";
 
 // Create a function to render DOM elements for default project's title block
 export function renderDefaultProjectTitle() {
@@ -48,7 +49,24 @@ export function renderProjectTitle(project) {
 }
 
 // Create a function to showed up the modal
-function showModal() {
+export function showModal() {
     const modal_container = document.querySelector(".project.modal-container");
     modal_container.classList.add("show");
+}
+
+// Create a function to handle user input
+export function handleUserInput() {
+    // Get the input
+    const input = document.getElementById("project-title");
+    const projectTitle = input.value;
+    
+    // Validate the input, prevent from an empty input
+    if (!projectTitle.trim()) return;
+
+    // Create the project based on the projectTitle
+    const project = addProject(projectTitle);
+    storeProject(project);
+
+    // Clear the input field
+    input.value = "";
 }
