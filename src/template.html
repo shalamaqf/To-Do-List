@@ -30,16 +30,62 @@
     </div>
 
     <!-- Add Project Modal -->
-    <div id="project-modal-container">
+    <div class="project modal-container">
         <div class="form-container">
             <form id="project-form-modal" action="">
-                <div class="input-title-container">
-                    <label for="title_input">Project's Title:</label>
-                    <input type="text" id="title_input">
+                <div class="input title-container">
+                    <label for="project-title">Project's Title:</label>
+                    <input type="text" id="project-title" name="input_title">
                 </div>
-                <div class="form-button">
-                    <button class="submit-button">Submit</button>
-                    <button class="cancel-button">Cancel</button>
+                <div class="form-button-container">
+                    <button type="submit" class="submit-button">Submit</button>
+                    <button type="button" class="cancel-button">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Todo Modal -->
+    <div class="todo modal-container">
+        <div class="form-container">
+            <form id="todo-form-modal" action="">
+                <div class="input title-container">
+                    <label for="todo-title">Todo's Title:</label>
+                    <input type="text" id="todo-title" name="input_title">
+                </div>
+                <div class="input dueDate-container">
+                    <label for="dueDate">Due Date:</label>
+                    <input type="datetime-local" id="dueDate" name="input_dueDate">
+                </div>
+                <div class="input desc-container">
+                    <label for="desc">Description:</label>
+                    <input type="text" id="desc" name="input_desc">
+                </div>
+                <div class="input priority-container">
+                    <label>Priority:</label>
+                    <div id="priority-button-container">
+                           <button type="button" class="priority-button flexible">Flexible</button>
+                           <button type="button" class="priority-button important">Important</button>
+                           <button type="button" class="priority-button urgent">Urgent</button>
+                    </div>
+                </div>
+                <div class="input note-container">
+                    <label for="note">Note:</label>
+                    <input type="text" id="note" name="input_note">
+                </div>
+                <div class="input checklist-container">
+                    <label for="checklist">Completed</label>
+                    <input type="checkbox" id="checklist" name="input_checklist">
+                </div>
+                <div class="input todoProject-container">
+                    <label for="project">Project:</label>
+                    <select name="" id="project" name="input_project">
+                        <option value="option1">Inbox</option>
+                    </select>
+                </div>
+                <div class="form-button-container">
+                    <button type="submit" class="submit-button">Submit</button>
+                    <button type="button" class="cancel-button">Cancel</button>
                 </div>
             </form>
         </div>
