@@ -62,7 +62,7 @@ footer {
 /* Layout Project Modal */
 .project.modal-container {
     position: fixed;
-    display: none;
+    display: flex;
     z-index: 1;
     top: 0;
     left: 0;
@@ -71,11 +71,15 @@ footer {
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out;
 }
 
 .todo.modal-container {
     position: fixed;
-    display: none;
+    display: flex;
     z-index: 1;
     top: 0;
     left: 0;
@@ -84,4 +88,13 @@ footer {
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
+    
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out;
+}
+
+.project.modal-container.show {
+    opacity: 1;
+    pointer-events: auto;
 }

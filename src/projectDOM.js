@@ -46,3 +46,9 @@ export function renderProjectTitle(project) {
     
     return projectTitleDiv;
 }
+
+// Create a function to showed up the modal
+function showModal() {
+    const modal_container = document.querySelector(".project.modal-container");
+    modal_container.classList.add("show");
+}
