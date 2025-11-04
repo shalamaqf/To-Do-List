@@ -69,4 +69,13 @@ export function handleUserInput() {
 
     // Clear the input field
     input.value = "";
+
+    // Hide the modal
+    hideModal();
+}
+
+// Create a function to hide the modal
+function hideModal() {
+    const modal_container = document.querySelector(".project.modal-container");
+    modal_container.classList.remove("show");
 }
