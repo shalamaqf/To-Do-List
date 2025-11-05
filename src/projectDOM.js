@@ -1,6 +1,7 @@
 import { getProject, addProject } from './projectManager.js';
 import { deleteProjectStorage, storeProject } from "./storage.js";
 
+
 // Create a function to render DOM elements for default project's title block
 export function renderDefaultProjectTitle() {
     const projectListContainer = document.querySelector("#projectList-container");
@@ -52,6 +53,7 @@ export function renderProjectTitle(project) {
     return projectTitleDiv;
 }
 
+
 // Create a function to showed up the modal
 function showModal() {
     const modal_container = document.querySelector(".project.modal-container");
@@ -93,6 +95,7 @@ export function createProjectFromModal() {
     // Render the project
     renderProjectTitle(project);
 }
+
 
 // Create a function to add the event listener to add button
 export function setupAddProject() {
