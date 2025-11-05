@@ -65,7 +65,7 @@ function hideModal() {
 // Create a function to clear input value
 function clearInputValue() {
     const input = document.getElementById("project-title");
-    input.value = "";
+    if (input) input.value = "";
 }
 
 
@@ -107,7 +107,7 @@ export function setupAddProject() {
 
 
 // Create a function to rename project
-function renameProjectFromModal(project, projectTitleBtn) {
+function renameProjectFromModal(project) {
     // Get the input
     const input = document.getElementById("project-title");
     const newTitle = input.value;
@@ -124,14 +124,17 @@ function renameProjectFromModal(project, projectTitleBtn) {
     // Update the local storage with project
     storeProject(project);
 
-    // Update the text button project's title
-    projectTitleBtn.textContent = project.title;
-    
     // Clear the input field
     clearInputValue();
 
     // Hide the modal
     hideModal();
+
+    // Re-render the project block and remove the old one
+    const projectListContainer = document.querySelector("#projectList-container");
+    const oldProjectDiv = projectListContainer.querySelector(`.projectTitle-container[data-title="${project.title}"]`);
+    if (oldProjectDiv) oldProjectDiv.remove();
+    renderProjectTitle(project);
 }
 
 
