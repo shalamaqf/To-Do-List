@@ -1,5 +1,5 @@
 import { getProject, addProject, viewProjectList } from './projectManager.js';
-import { storeProject } from "./storage.js";
+import { deleteProjectStorage, storeProject } from "./storage.js";
 
 // Create a function to render DOM elements for default project's title block
 export function renderDefaultProjectTitle() {
@@ -44,7 +44,7 @@ export function renderProjectTitle(project) {
     projectTitleDiv.appendChild(projectTitleButton);
     projectTitleDiv.appendChild(projectBtnContainer);
     projectListContainer.appendChild(projectTitleDiv);
-    
+
     return projectTitleDiv;
 }
 
@@ -53,6 +53,19 @@ function showModal() {
     const modal_container = document.querySelector(".project.modal-container");
     modal_container.classList.add("show");
 }
+
+// Create a function to hide the modal
+function hideModal() {
+    const modal_container = document.querySelector(".project.modal-container");
+    modal_container.classList.remove("show");
+}
+
+// Create a function to clear input value
+function clearInputValue() {
+    const input = document.getElementById("project-title");
+    input.value = "";
+}
+
 
 // Create a function to handle user input
 function createProjectFromModal() {
@@ -77,35 +90,15 @@ function createProjectFromModal() {
     renderProjectTitle(project);
 }
 
-// Create a function to hide the modal
-function hideModal() {
-    const modal_container = document.querySelector(".project.modal-container");
-    modal_container.classList.remove("show");
-}
-
-// Create a function add an event listener to add project button
+// Create a function to add the project
 export function setupAddProject() {
     const addButton = document.getElementById("add-project-button");
     const form = document.getElementById("project-form-modal");
-    const cancelButton = document.getElementById("cancel-project-button");
+    const submitAdd = document.getElementById("submit-project-button");
 
     addButton.addEventListener('click', () => {
+        form.dataset.mode = "add";
+        submitAdd.textContent = "Add Project";
         showModal();
     })
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        createProjectFromModal();
-        console.log(viewProjectList());
-    })
-
-    cancelButton.addEventListener('click', () => {
-        hideModal();
-        clearInputValue();
-    })
-}
-
-function clearInputValue() {
-    const input = document.getElementById("project-title");
-    input.value = "";
 }
