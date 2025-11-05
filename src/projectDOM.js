@@ -39,6 +39,8 @@ export function renderProjectTitle(project) {
     deleteProjectBtn.textContent = "-";
     renameProjectBtn.textContent = "✎";
 
+    projectTitleDiv.dataset.title = project.title;
+
     projectBtnContainer.appendChild(renameProjectBtn);
     projectBtnContainer.appendChild(deleteProjectBtn);
     projectTitleDiv.appendChild(projectTitleButton);
@@ -108,6 +110,9 @@ export function setupAddProject() {
 
 // Create a function to rename project
 function renameProjectFromModal(project) {
+    // Store the old title
+    const oldTitle = project.title;
+
     // Get the input
     const input = document.getElementById("project-title");
     const newTitle = input.value;
@@ -124,17 +129,17 @@ function renameProjectFromModal(project) {
     // Update the local storage with project
     storeProject(project);
 
-    // Clear the input field
+    // Re-render the project block and remove the old one
+    const projectListContainer = document.querySelector("#projectList-container");
+    const oldProjectDiv = projectListContainer.querySelector(`.projectTitle-container[data-title="${oldTitle}"]`);
+    if (oldProjectDiv) oldProjectDiv.remove();
+    renderProjectTitle(project);
+
+      // Clear the input field
     clearInputValue();
 
     // Hide the modal
     hideModal();
-
-    // Re-render the project block and remove the old one
-    const projectListContainer = document.querySelector("#projectList-container");
-    const oldProjectDiv = projectListContainer.querySelector(`.projectTitle-container[data-title="${project.title}"]`);
-    if (oldProjectDiv) oldProjectDiv.remove();
-    renderProjectTitle(project);
 }
 
 
