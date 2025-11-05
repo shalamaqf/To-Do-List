@@ -150,3 +150,21 @@ export function setupRenameProject(renameProjectBtn, project) {
         showModal();
     })
 }
+
+
+// Create a submit function to determine logic to run
+export function submitLogic(e, form) {
+    e.preventDefault();
+
+    // Add project logic
+    if (form.dataset.mode === "add") {
+        createProjectFromModal();
+        return;
+    }
+
+    if (form.dataset.mode === "rename") {
+        const project = getProject(form.dataset.oldTitle);
+        if (project) renameProjectFromModal(project);
+        return;
+    }
+}
