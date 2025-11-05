@@ -173,3 +173,19 @@ export function submitLogic(e, form) {
         return;
     }
 }
+
+
+// Create a function to attach an event listener to form
+export function setupFormProject() {
+    const form = document.getElementById("project-form-modal");
+    const cancelBtn = document.getElementById("cancel-project-button");
+
+    form.addEventListener('submit', (e) => {
+        submitLogic(e, form);
+    })
+
+    cancelBtn.addEventListener('click', () => {
+        hideModal();
+        clearInputValue();
+    })
+}
