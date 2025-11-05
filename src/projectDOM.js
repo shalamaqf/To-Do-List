@@ -1,4 +1,4 @@
-import { getProject, addProject, viewProjectList } from './projectManager.js';
+import { getProject, addProject } from './projectManager.js';
 import { deleteProjectStorage, storeProject } from "./storage.js";
 
 // Create a function to render DOM elements for default project's title block
@@ -71,7 +71,7 @@ function clearInputValue() {
 }
 
 
-// Create a function to handle user input
+// Create a function to create a project from the modal
 export function createProjectFromModal() {
     // Get the input
     const input = document.getElementById("project-title");
@@ -94,7 +94,7 @@ export function createProjectFromModal() {
     renderProjectTitle(project);
 }
 
-// Create a function to add the project
+// Create a function to add the event listener to add button
 export function setupAddProject() {
     const addButton = document.getElementById("add-project-button");
     const form = document.getElementById("project-form-modal");
@@ -108,7 +108,7 @@ export function setupAddProject() {
 }
 
 
-// Create a function to rename project
+// Create a function to rename project's title
 function renameProjectFromModal(project) {
     // Store the old title
     const oldTitle = project.title;
@@ -129,13 +129,12 @@ function renameProjectFromModal(project) {
     // Update the local storage with project
     storeProject(project);
 
-    // Re-render the project block and remove the old one
-    const projectListContainer = document.querySelector("#projectList-container");
-    const oldProjectDiv = projectListContainer.querySelector(`.projectTitle-container[data-title="${oldTitle}"]`);
-    if (oldProjectDiv) oldProjectDiv.remove();
-    renderProjectTitle(project);
+    // Set the new title on the project title button
+    const oldProjectDiv = document.querySelector(`[data-title="${oldTitle}"]`);
+    oldProjectDiv.querySelector('.projectTitleBtn').textContent = newTitle;
+    oldProjectDiv.dataset.title = newTitle;
 
-      // Clear the input field
+    // Clear the input field
     clearInputValue();
 
     // Hide the modal
