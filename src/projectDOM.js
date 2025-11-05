@@ -102,3 +102,32 @@ export function setupAddProject() {
         showModal();
     })
 }
+
+
+// Create a function to rename project
+function renameProjectFromModal(project, projectTitleBtn) {
+    // Get the input
+    const input = document.getElementById("project-title");
+    const newTitle = input.value;
+
+    // Validate the input, prevent from an empty input
+    if (!newTitle.trim()) return;
+
+    // Delete the old project with the old title in local storage
+    deleteProjectStorage(project);
+
+    // Set the new title
+    project.setTitle = newTitle;
+
+    // Update the local storage with project
+    storeProject(project);
+
+    // Update the text button project's title
+    projectTitleBtn.textContent = project.title;
+    
+    // Clear the input field
+    clearInputValue();
+
+    // Hide the modal
+    hideModal();
+}
