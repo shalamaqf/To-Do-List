@@ -45,6 +45,8 @@ export function renderProjectTitle(project) {
     projectTitleDiv.appendChild(projectBtnContainer);
     projectListContainer.appendChild(projectTitleDiv);
 
+    setupRenameProject(renameProjectBtn, project);
+
     return projectTitleDiv;
 }
 
@@ -68,7 +70,7 @@ function clearInputValue() {
 
 
 // Create a function to handle user input
-function createProjectFromModal() {
+export function createProjectFromModal() {
     // Get the input
     const input = document.getElementById("project-title");
     const projectTitle = input.value;
@@ -130,4 +132,18 @@ function renameProjectFromModal(project, projectTitleBtn) {
 
     // Hide the modal
     hideModal();
+}
+
+
+// Create a function to setup the modal for rename project
+export function setupRenameProject(renameProjectBtn, project) {
+    const form = document.getElementById("project-form-modal");
+    const submitRename = document.getElementById("submit-project-button");
+
+    renameProjectBtn.addEventListener('click', () => {
+        form.dataset.mode = "rename";
+        form.dataset.oldTitle = project.title;
+        submitRename.textContent = "Rename";
+        showModal();
+    })
 }
