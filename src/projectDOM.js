@@ -220,7 +220,7 @@ export function handleDeleteProject(project) {
 }
 
 // Create a function to setup the delete button in a project
-function setupDeleteProject(deleteBtn, project) {
+function setupDeleteProject(deleteBtn, project, projectTitleDiv) {
     deleteBtn.addEventListener('click', () => {
         handleDeleteProject(project);
     })
@@ -250,4 +250,13 @@ export function renderPopoverDOM() {
     popoverContainer.appendChild(buttonContainer);
 
     return popoverContainer;
+}
+
+// Create a function to append the popover DOM to the project title div
+function appendPopover(project, projectTitleDiv) {
+    const popover = renderPopoverDOM();
+    
+    if (projectTitleDiv.querySelector('#popover-container')) return;
+
+    projectTitleDiv.appendChild(popover);
 }
