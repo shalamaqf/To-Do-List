@@ -195,7 +195,25 @@ export function setupFormProject() {
 
 
 // Create a function to delete project in DOM
-export function deleteProjectDOM(project) {
+function deleteProjectDOM(project) {
     const projectDiv = document.querySelector(`[data-title="${project.title}"]`);
     projectDiv.remove();
+}
+
+// Create a function to delete project in global array, storage, and DOM
+export function handleDeleteProject(project) {
+    // Get the project title
+    const projectTitle = project.title;
+
+    // Delete all project's todo
+    project.toDoList.length = 0;
+    
+    // Delete project in global array
+    deleteProject(projectTitle);
+
+    // Delete project in storage
+    deleteProjectStorage(project);
+
+    // Delete project in DOM
+    deleteProjectDOM(project);
 }
