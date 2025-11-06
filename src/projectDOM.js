@@ -103,10 +103,12 @@ export function setupAddProject() {
     const addButton = document.getElementById("add-project-button");
     const form = document.getElementById("project-form-modal");
     const submitAdd = document.getElementById("submit-project-button");
+    const modalHeader = document.getElementById('modal-header');
 
     addButton.addEventListener('click', () => {
         form.dataset.mode = "add";
         submitAdd.textContent = "Add Project";
+        modalHeader.textContent = "Add Project";
         showModal();
     })
 }
@@ -150,11 +152,13 @@ function renameProjectFromModal(project) {
 export function setupRenameProject(renameProjectBtn, project) {
     const form = document.getElementById("project-form-modal");
     const submitRename = document.getElementById("submit-project-button");
+    const modalHeader = document.getElementById('modal-header');
 
     renameProjectBtn.addEventListener('click', () => {
         form.dataset.mode = "rename";
         form.dataset.oldTitle = project.title;
         submitRename.textContent = "Rename";
+        modalHeader.textContent = "Rename Project";
         showModal();
     })
 }
