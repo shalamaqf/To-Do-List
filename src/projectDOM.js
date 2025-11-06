@@ -1,4 +1,4 @@
-import { getProject, addProject } from './projectManager.js';
+import { getProject, addProject, deleteProject } from './projectManager.js';
 import { deleteProjectStorage, storeProject } from "./storage.js";
 
 
@@ -191,4 +191,11 @@ export function setupFormProject() {
         hideModal();
         clearInputValue();
     })
+}
+
+
+// Create a function to delete project in DOM
+export function deleteProjectDOM(project) {
+    const projectDiv = document.querySelector(`[data-title="${project.title}"]`);
+    projectDiv.remove();
 }
