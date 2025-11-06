@@ -285,3 +285,11 @@ function removePopover() {
     const popover = document.getElementById('popover-container');
     if (popover) popover.remove();
 }
+
+
+// Create a function to initiallize the project DOM
+export function initProjectDOM(inbox) {
+    renderDefaultProjectTitle(inbox);
+    setupAddProject();
+    setupFormProject();
+}
