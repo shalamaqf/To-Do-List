@@ -49,6 +49,7 @@ export function renderProjectTitle(project) {
     projectListContainer.appendChild(projectTitleDiv);
 
     setupRenameProject(renameProjectBtn, project);
+    setupDeleteProject(deleteProjectBtn, project);
 
     return projectTitleDiv;
 }
@@ -216,4 +217,11 @@ export function handleDeleteProject(project) {
 
     // Delete project in DOM
     deleteProjectDOM(project);
+}
+
+// Create a function to setup the delete button in a project
+function setupDeleteProject(deleteBtn, project) {
+    deleteBtn.addEventListener('click', () => {
+        handleDeleteProject(project);
+    })
 }
