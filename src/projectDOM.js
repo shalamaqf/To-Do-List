@@ -237,8 +237,8 @@ export function renderPopoverDOM() {
     popoverContainer.id = 'popover-container';
     confirmMessage.id = 'confirm-message';
     buttonContainer.id = 'confirm-button-container';
-    yesButton.className = 'confirm-button';
-    noButton.className = 'confirm-button';
+    yesButton.className = 'confirm-button yes';
+    noButton.className = 'confirm-button no';
 
     confirmMessage.textContent = "Delete this project?";
     yesButton.textContent = "Yes";
@@ -259,4 +259,10 @@ function appendPopover(project, projectTitleDiv) {
     if (projectTitleDiv.querySelector('#popover-container')) return;
 
     projectTitleDiv.appendChild(popover);
+}
+
+// Create a function to remove popover from DOM
+function removePopover() {
+    const popover = document.getElementById('popover-container');
+    popover.remove();
 }
