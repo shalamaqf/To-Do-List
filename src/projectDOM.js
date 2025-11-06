@@ -1,18 +1,17 @@
-import { getProject, addProject, deleteProject } from './projectManager.js';
+import { getProject, addProject, deleteProject, inbox } from './projectManager.js';
 import { deleteProjectStorage, storeProject } from "./storage.js";
 
 
 // Create a function to render DOM elements for default project's title block
-export function renderDefaultProjectTitle() {
+export function renderDefaultProjectTitle(inbox) {
     const projectListContainer = document.querySelector("#projectList-container");
-    const inboxProject = getProject('Inbox');
     const projectTitleDiv = document.createElement("div");
     const projectTitleButton = document.createElement("button");
    
     projectTitleDiv.className = "projectTitle-container";
     projectTitleButton.className = "projectTitleBtn";
     
-    projectTitleButton.textContent = inboxProject.title;
+    projectTitleButton.textContent = inbox.title;
 
     projectTitleDiv.appendChild(projectTitleButton);
     projectListContainer.appendChild(projectTitleDiv);
@@ -53,7 +52,6 @@ export function renderProjectTitle(project) {
 
     return projectTitleDiv;
 }
-
 
 // Create a function to showed up the modal
 function showModal() {

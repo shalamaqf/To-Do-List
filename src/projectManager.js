@@ -1,8 +1,12 @@
 // Import class project
 import Project from './project.js';
+import { storeProject } from './storage.js';
 
 // Create an array to store projects
 let projectList = [];
+
+// Create variable to store the inbox project
+export let inbox = createDefaultProject();
 
 // Create a function to create a project object
 function createProject(title) {
@@ -13,6 +17,7 @@ function createProject(title) {
 export function createDefaultProject() {
     const inbox = createProject('Inbox');
     projectList.push(inbox);
+    storeProject(inbox);
     return inbox;
 }
 
