@@ -49,7 +49,7 @@ export function renderProjectTitle(project) {
     projectListContainer.appendChild(projectTitleDiv);
 
     setupRenameProject(renameProjectBtn, project);
-    setupDeleteProject(deleteProjectBtn, project);
+    setupDeleteProject(deleteProjectBtn, project, projectTitleDiv);
 
     return projectTitleDiv;
 }
@@ -222,7 +222,8 @@ export function handleDeleteProject(project) {
 // Create a function to setup the delete button in a project
 function setupDeleteProject(deleteBtn, project, projectTitleDiv) {
     deleteBtn.addEventListener('click', () => {
-        handleDeleteProject(project);
+        appendPopover(projectTitleDiv);
+        setupPopover(project);
     })
 }
 
@@ -253,7 +254,7 @@ export function renderPopoverDOM() {
 }
 
 // Create a function to append the popover DOM to the project title div
-function appendPopover(project, projectTitleDiv) {
+function appendPopover(projectTitleDiv) {
     const popover = renderPopoverDOM();
     
     if (projectTitleDiv.querySelector('#popover-container')) return;
@@ -261,8 +262,23 @@ function appendPopover(project, projectTitleDiv) {
     projectTitleDiv.appendChild(popover);
 }
 
+// Create a function to setup the popover and add event listener to the buttons 
+function setupPopover(project) {
+    const yesButton = document.querySelector('.confirm-button.yes');
+    const noButton = document.querySelector('.confirm-button.no');
+
+    yesButton.addEventListener('click', () => {
+        handleDeleteProject(project);
+        removePopover();
+    })
+
+    noButton.addEventListener('click', () => {
+        removePopover();
+    })
+}
+
 // Create a function to remove popover from DOM
 function removePopover() {
     const popover = document.getElementById('popover-container');
-    popover.remove();
+    if (popover) popover.remove();
 }
