@@ -107,6 +107,7 @@ export function setupAddProject() {
         form.dataset.mode = "add";
         submitAdd.textContent = "Add Project";
         modalHeader.textContent = "Add Project";
+        removePopover();
         showModal();
     })
 }
@@ -157,6 +158,7 @@ export function setupRenameProject(renameProjectBtn, project) {
         form.dataset.oldTitle = project.title;
         submitRename.textContent = "Rename";
         modalHeader.textContent = "Rename Project";
+        removePopover()
         showModal();
     })
 }
@@ -257,10 +259,9 @@ export function renderPopoverDOM() {
 
 // Create a function to append the popover DOM to the project title div
 function appendPopover(projectTitleDiv) {
+    // Prevent duplicate popovers
+    removePopover();
     const popover = renderPopoverDOM();
-    
-    if (projectTitleDiv.querySelector('#popover-container')) return;
-
     projectTitleDiv.appendChild(popover);
 }
 
