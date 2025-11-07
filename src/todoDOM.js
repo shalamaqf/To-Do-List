@@ -54,6 +54,11 @@ export function renderTodoDetails(todo, todoContainer) {
     
 }
 
+// Create a function to show the todo modal
+function showModal() {
+    const modalContainer = document.querySelector('.todo.modal-container');
+    modalContainer.classList.add('show');
+}
 
 // Create a function to add a todo in to spesific project
 function addTodo(form, project) {
