@@ -1,6 +1,6 @@
 // Import
 import { createTodo } from './todoManager.js';
-import {} from './project.js';
+import { viewProjectList } from './projectManager.js';
 import { storeProject } from './storage.js';
 
 // Create a function to render \todo DOM elements
@@ -139,5 +139,22 @@ function selectedPriority(form) {
         flexibleButton.classList.remove('show');
         importantButton.classList.remove('show');
         form.dataset.priority = urgentButton.textContent;
+    })
+}
+
+// Create a function to drop down the project list
+function dropDownProjects(form) {
+    // Get the project list
+    const projectList = viewProjectList();
+    const select = form.querySelector('#project');
+
+    // Clear the existing drop down
+    select.innerHTML = "";
+
+    // Create option element for each project
+    projectList.forEach (project => {
+        const option = document.createElement('option');
+        option.textContent = project.title;
+        select.appendChild(option);
     })
 }
