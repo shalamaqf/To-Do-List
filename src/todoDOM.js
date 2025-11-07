@@ -60,6 +60,12 @@ function showModal() {
     modalContainer.classList.add('show');
 }
 
+// Create a funtion to hide the todo modal
+function hideModal() {
+    const modalContainer = document.querySelector('.todo.modal-container');
+    modalContainer.classList.remove('show');
+}
+
 // Create a function to add a todo in to spesific project
 function addTodo(form, project) {
     const title = document.getElementById('todo-title').value;
