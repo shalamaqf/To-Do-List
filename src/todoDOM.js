@@ -27,3 +27,25 @@ export function renderTodo(todo) {
     return todoContainer;
 
 }
+
+// Create a function to render the todo's details
+export function renderTodoDetails(todo, todoContainer) {
+    const todoDesc = document.createElement('p');
+    const todoNote = document.createElement('p');
+    const todoProject = document.createElement('p');
+
+    todoDesc.className = 'todo todo-desc';
+    todoNote.className = 'todo todo-note';
+    todoProject.className = 'todo todo-project';
+
+    todoDesc.textContent = 'Description: ' + todo.desc;
+    todoNote.textContent = 'Note: ' + todo.note;
+    todoProject.textContent = 'Project: ' + todo.project.title;
+
+    todoContainer.appendChild(todoDesc);
+    todoContainer.appendChild(todoNote);
+    todoContainer.appendChild(todoProject);
+
+    return todoContainer;
+    
+}
