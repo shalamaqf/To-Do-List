@@ -1,6 +1,7 @@
 // Import
 import { createTodo } from './todoManager.js';
 import {} from './project.js';
+import { storeProject } from './storage.js';
 
 // Create a function to render \todo DOM elements
 export function renderTodo(todo) {
@@ -97,12 +98,21 @@ function createTodoFromModal(form, project) {
 
     // Push the todo to project's toDoList array
     project.addToDo(todo);
+
+    // Update the project in local storage
+    storeProject(project);
+
+    // Clear input values
+    clearValues();
+
+    // Hide modal
+    hideModal();
     
     // Render the todo
     renderTodo(todo);
 }
 
-// Create a function to select the priority button
+// Create a function to add event listeners to priority buttons
 function selectedPriority(form) {
     // Select the buttons
     const flexibleButton = form.querySelector('.flexible');
