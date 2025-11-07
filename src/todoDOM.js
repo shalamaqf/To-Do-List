@@ -77,8 +77,8 @@ function clearValues() {
     }
 }
 
-// Create a function to add a todo in to spesific project
-function addTodo(form, project) {
+// Create a function to create a todo and push in to spesific project
+function createTodoFromModal(form, project) {
     const title = document.getElementById('todo-title').value;
     const dueDate = document.getElementById('dueDate').value;
     const desc = document.getElementById('desc').value;
