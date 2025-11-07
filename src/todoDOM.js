@@ -1,3 +1,7 @@
+// Import
+import { createTodo } from './todoManager.js';
+import {} from './project.js';
+
 // Create a function to render \todo DOM elements
 export function renderTodo(todo) {
     const todoListContainer = document.getElementById('todoList-container');
@@ -50,6 +54,31 @@ export function renderTodoDetails(todo, todoContainer) {
     
 }
 
+
+// Create a function to add a todo in to spesific project
+function addTodo(form, project) {
+    const title = document.getElementById('todo-title').value;
+    const dueDate = document.getElementById('dueDate').value;
+    const desc = document.getElementById('desc').value;
+    const priority = form.dataset.priority;
+    const note = document.getElementById('note').value;
+    const completed = document.getElementById('checklist').checked;
+    const inputProject = document.getElementById('project').value;
+
+    // Set the input as the todo's properties
+    const todo = createTodo(title, dueDate, project);
+    todo.setDesc = desc;
+    todo.setPriority = priority;
+    todo.setNote = note;
+    todo.isComplete = completed;
+    todo.setProject = inputProject;
+
+    // Push the todo to project's toDoList array
+    project.addToDo(todo);
+    
+    // Render the todo
+    renderTodo(todo);
+}
 
 // Create a function to select the priority button
 function selectedPriority(form) {
