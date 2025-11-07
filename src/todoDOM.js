@@ -49,3 +49,34 @@ export function renderTodoDetails(todo, todoContainer) {
     return todoContainer;
     
 }
+
+
+// Create a function to select the priority button
+function selectedPriority(form) {
+    // Select the buttons
+    const flexibleButton = form.querySelector('.flexible');
+    const importantButton = form.querySelector('.important');
+    const urgentButton = form.querySelector('.urgent');
+
+    // Add the event listener
+    flexibleButton.addEventListener('click', () => {
+        flexibleButton.classList.add('show');
+        importantButton.classList.remove('show');
+        urgentButton.classList.remove('show');
+        form.dataset.priority = flexibleButton.textContent;  
+    })
+
+    importantButton.addEventListener('click', () => {
+        importantButton.classList.add('show');
+        flexibleButton.classList.remove('show');
+        urgentButton.classList.remove('show');
+        form.dataset.priority = importantButton.textContent;
+    })
+
+    urgentButton.addEventListener('click', () => {
+        urgentButton.classList.add('show');
+        flexibleButton.classList.remove('show');
+        importantButton.classList.remove('show');
+        form.dataset.priority = urgentButton.textContent;
+    })
+}
