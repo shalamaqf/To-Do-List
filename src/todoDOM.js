@@ -66,6 +66,17 @@ function hideModal() {
     modalContainer.classList.remove('show');
 }
 
+// Create a function to clear the values
+function clearValues() {
+    const formModal = document.getElementById('todo-form-modal');
+    const inputs = formModal.querySelectorAll('input');
+    if (inputs) {
+        inputs.forEach(input => {
+            input.value = "";
+        });
+    }
+}
+
 // Create a function to add a todo in to spesific project
 function addTodo(form, project) {
     const title = document.getElementById('todo-title').value;
