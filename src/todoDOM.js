@@ -1,8 +1,7 @@
 // Import
 import { createTodo } from './todoManager.js';
-import { viewProjectList } from './projectManager.js';
+import { getProject, viewProjectList } from './projectManager.js';
 import { storeProject } from './storage.js';
-import { te } from 'date-fns/locale';
 
 // Create a function to render \todo DOM elements
 export function renderTodo(todo) {
@@ -80,7 +79,7 @@ function clearValues() {
 }
 
 // Create a function to create a todo and push in to spesific project
-function createTodoFromModal(form, project) {
+function createTodoFromModal(form, projectTitle) {
     const title = document.getElementById('todo-title').value;
     const dueDate = document.getElementById('dueDate').value;
     const desc = document.getElementById('desc').value;
@@ -90,17 +89,15 @@ function createTodoFromModal(form, project) {
     const inputProject = document.getElementById('project').value;
 
     // Set the input as the todo's properties
-    const todo = createTodo(title, dueDate, project);
+    const todo = createTodo(title, dueDate, projectTitle);
     todo.setDesc = desc;
     todo.setPriority = priority;
     todo.setNote = note;
     todo.isComplete = completed;
     todo.setProject = inputProject;
 
-    // Push the todo to project's toDoList array
-    project.addToDo(todo);
-
     // Update the project in local storage
+    const project = getProject(projectTitle);
     storeProject(project);
 
     // Clear input values
@@ -125,7 +122,8 @@ function selectedPriority(form) {
         flexibleButton.classList.add('show');
         importantButton.classList.remove('show');
         urgentButton.classList.remove('show');
-        form.dataset.priority = flexibleButton.textContent;  
+        form.dataset.priority = flexibleButton.textContent;
+        console.log(form.dataset.priority);  
     })
 
     importantButton.addEventListener('click', () => {
@@ -133,6 +131,7 @@ function selectedPriority(form) {
         flexibleButton.classList.remove('show');
         urgentButton.classList.remove('show');
         form.dataset.priority = importantButton.textContent;
+        console.log(form.dataset.priority);
     })
 
     urgentButton.addEventListener('click', () => {
@@ -140,6 +139,7 @@ function selectedPriority(form) {
         flexibleButton.classList.remove('show');
         importantButton.classList.remove('show');
         form.dataset.priority = urgentButton.textContent;
+        console.log(form.dataset.priority);
     })
 }
 
@@ -166,11 +166,45 @@ export function setupAddTodoButton() {
     const form = document.getElementById('todo-form-modal');
     const submitAdd = document.getElementById('submit-todo-button');
     const modalHeader = document.getElementById('todo-modal-header');
+    const selectProject = form.querySelector('#project');
+
 
     addButton.addEventListener('click', () => {
+        dropDownProjects(form);
+        selectProject.value = "Inbox";
         form.dataset.mode = "add";
         submitAdd.textContent = "Add";
         modalHeader.textContent = "Add Todo";
         showModal();
+    })
+}
+
+// Create a function to setup the form modal to add todo
+export function setupFormAddTodo() {
+    const form = document.getElementById('todo-form-modal');
+    const cancelBtn = document.getElementById('cancel-todo-button');
+    const selectProject = document.getElementById('project');
+    const addButton = document.getElementById('submit-todo-button');
+
+    // Set inbox as default
+    selectProject.value = "Inbox";
+
+    // Attach event listeners to priority buttons
+    selectedPriority(form);
+
+    selectProject.addEventListener('focus', () => {
+        dropDownProjects(form);
+    })
+
+    addButton.addEventListener('click', (e) => {
+        // Todo's project
+        const projectTitle = selectProject.value;
+        e.preventDefault();
+        createTodoFromModal(form, projectTitle);
+    })
+
+    cancelBtn.addEventListener('click', () => {
+        clearValues();
+        hideModal();
     })
 }
