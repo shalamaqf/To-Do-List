@@ -2,6 +2,7 @@
 import { createTodo } from './todoManager.js';
 import { viewProjectList } from './projectManager.js';
 import { storeProject } from './storage.js';
+import { te } from 'date-fns/locale';
 
 // Create a function to render \todo DOM elements
 export function renderTodo(todo) {
@@ -156,5 +157,20 @@ function dropDownProjects(form) {
         const option = document.createElement('option');
         option.textContent = project.title;
         select.appendChild(option);
+    })
+}
+
+// Create a function to setup the add todo button
+export function setupAddTodoButton() {
+    const addButton = document.getElementById('add-todo-button');
+    const form = document.getElementById('todo-form-modal');
+    const submitAdd = document.getElementById('submit-todo-button');
+    const modalHeader = document.getElementById('todo-modal-header');
+
+    addButton.addEventListener('click', () => {
+        form.dataset.mode = "add";
+        submitAdd.textContent = "Add";
+        modalHeader.textContent = "Add Todo";
+        showModal();
     })
 }
