@@ -186,9 +186,6 @@ export function setupFormAddTodo() {
     const selectProject = document.getElementById('project');
     const addButton = document.getElementById('submit-todo-button');
 
-    // Set inbox as default
-    selectProject.value = "Inbox";
-
     // Attach event listeners to priority buttons
     selectedPriority(form);
 
