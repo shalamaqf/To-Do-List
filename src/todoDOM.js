@@ -80,13 +80,27 @@ function hideModal() {
 }
 
 // Create a function to clear the values
-function clearValues() {
+function clearValues(form) {
     const formModal = document.getElementById('todo-form-modal');
     const inputs = formModal.querySelectorAll('input');
+    const checkbox = formModal.querySelector('#checklist');
+    const priorityButtons = form.querySelectorAll('.priority-button');
+
     if (inputs) {
         inputs.forEach(input => {
             input.value = "";
         });
+    }
+
+    // Unchecked checkbox
+    checkbox.checked = false;
+
+    // Clear priority input
+    form.removeAttribute('data-priority');
+    if (priorityButtons) {
+        priorityButtons.forEach(button => {
+            button.classList.remove('.show');
+        })
     }
 }
 
@@ -115,7 +129,7 @@ function createTodoFromModal(form, projectTitle) {
     storeProject(project);
 
     // Clear input values
-    clearValues();
+    clearValues(form);
 
     // Hide modal
     hideModal();
@@ -219,7 +233,7 @@ export function setupFormAddTodo() {
     })
 
     cancelBtn.addEventListener('click', () => {
-        clearValues();
+        clearValues(form);
         hideModal();
     })
 }
@@ -230,12 +244,11 @@ export function setupFormAddTodo() {
 function validateInput(form) {
     const inputTitle = form.querySelector('#todo-title');
     const inputDueDate = form.querySelector('#dueDate');
-    const inputPriority = form.dataset.priority;
 
     const title = inputTitle.value;
     const dueDate = inputDueDate.value;
 
-    if ((title === '') || (dueDate === '') || (inputPriority === undefined)){
+    if ((title === '') || (dueDate === '') || (!form.dataset.priority)){
         alert("Fields are required (Title, Due Date, Priority, Project)");
         return false;
     }
@@ -275,3 +288,5 @@ function removeDetails(todoContainer) {
     if (note) note.remove();
     if (project) project.remove();
 }
+
+// CLEAR THE CHECKLIST INPUT //
