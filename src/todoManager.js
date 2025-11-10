@@ -39,8 +39,4 @@ export function moveTodo(todo, projectTitle) {
         project.addToDo(todo);
         return;
     }
-    const inbox = getProject('Inbox');
-    todo.project = inbox;
-    inbox.addToDo(todo);
-    return;
 }

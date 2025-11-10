@@ -1,5 +1,5 @@
 // Import
-import { createTodo } from './todoManager.js';
+import { createTodo, moveTodo } from './todoManager.js';
 import { getProject, viewProjectList } from './projectManager.js';
 import { storeProject } from './storage.js';
 
