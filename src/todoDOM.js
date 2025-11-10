@@ -20,6 +20,8 @@ export function renderTodo(todo) {
     todoCompleted.className = 'todo todo-completed';
     seeDetailsBtn.className = 'see todo-btn';
 
+    todo.showingDetails = false;
+
     todoTitle.textContent = todo.title;
     todoDueDate.textContent = todo.dueDate;
     todoPriority.textContent = todo.priority;
@@ -32,6 +34,8 @@ export function renderTodo(todo) {
     todoContainer.appendChild(todoCompleted);
     todoContainer.appendChild(seeDetailsBtn);
     todoListContainer.appendChild(todoContainer);
+
+    setupDetailsBtn(seeDetailsBtn, todo, todoContainer);
 
     return todoContainer;
 
@@ -49,7 +53,7 @@ export function renderTodoDetails(todo, todoContainer) {
 
     todoDesc.textContent = 'Description: ' + todo.desc;
     todoNote.textContent = 'Note: ' + todo.note;
-    todoProject.textContent = 'Project: ' + todo.project.title;
+    todoProject.textContent = 'Project: ' + todo.project;
 
     todoContainer.appendChild(todoDesc);
     todoContainer.appendChild(todoNote);
@@ -221,7 +225,7 @@ function validateInput(form) {
     const title = inputTitle.value;
     const dueDate = inputDueDate.value;
 
-    if ((title === '') || (dueDate === '') || (inputPriority === '')){
+    if ((title === '') || (dueDate === '') || (inputPriority === undefined)){
         alert("Fields are required (Title, Due Date, Priority, Project)");
         return false;
     }
@@ -230,8 +234,32 @@ function validateInput(form) {
 }
 
 // Attach an event listener to see the todo's details
-function seeTodoDetails(seeDetailsBtn, todo, todoContainer) {
+function setupDetailsBtn(seeDetailsBtn, todo, todoContainer) {
     seeDetailsBtn.addEventListener('click', () => {
-        renderTodoDetails(todo, todoContainer);
+        toggleTodoDetails(todo, seeDetailsBtn, todoContainer);
     })
+}
+
+// Create a function to toggle the todo's details
+function toggleTodoDetails(todo, seeDetailsBtn, todoContainer) {
+    if (!todo.showingDetails) {
+        renderTodoDetails(todo, todoContainer);
+        seeDetailsBtn.textContent = 'Hide Details';
+        todo.showingDetails = true;
+    }
+    else {
+        removeDetails(todoContainer);
+        seeDetailsBtn.textContent = 'See Details';
+        todo.showingDetails = false;
+    }
+}
+
+// Create a function to remove the todo's details
+function removeDetails(todoContainer) {
+    const desc = todoContainer.querySelector('.todo-desc');
+    const note = todoContainer.querySelector('.todo-note');
+    const project = todoContainer.querySelector('.todo-project');
+    if (desc) desc.remove();
+    if (note) note.remove();
+    if (project) project.remove();
 }
