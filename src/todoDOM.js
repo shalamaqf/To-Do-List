@@ -308,3 +308,23 @@ function setupEditButton(editBtn, todo, todoContainer) {
         showModal();
     })
 }
+
+// Create a function to populate the form with todo's properties
+function populateForm(todo, form) {
+    // Set the form's input with todo's properties
+    form.querySelector('#todo-title').value = todo.title;
+    form.querySelector('#dueDate').value = todo.dueDate;
+    form.querySelector('#desc').value = todo.desc;
+    form.querySelector('#note').value = todo.note;
+    form.querySelector('#checklist').checked = todo.isComplete;
+    
+    // Set the input project
+    form.querySelector('#project').value = todo.project.title;
+
+    // Set the input priority
+    form.dataset.priority = todo.priority;
+    const priorityButtons = form.querySelectorAll('.priority-button');
+    priorityButtons.forEach(button => {
+        button.classList.toggle('show', button.textContent === todo.priority);
+    })
+}
