@@ -123,7 +123,6 @@ function selectedPriority(form) {
         importantButton.classList.remove('show');
         urgentButton.classList.remove('show');
         form.dataset.priority = flexibleButton.textContent;
-        console.log(form.dataset.priority);  
     })
 
     importantButton.addEventListener('click', () => {
@@ -131,7 +130,6 @@ function selectedPriority(form) {
         flexibleButton.classList.remove('show');
         urgentButton.classList.remove('show');
         form.dataset.priority = importantButton.textContent;
-        console.log(form.dataset.priority);
     })
 
     urgentButton.addEventListener('click', () => {
@@ -139,7 +137,6 @@ function selectedPriority(form) {
         flexibleButton.classList.remove('show');
         importantButton.classList.remove('show');
         form.dataset.priority = urgentButton.textContent;
-        console.log(form.dataset.priority);
     })
 }
 
@@ -204,4 +201,19 @@ export function setupFormAddTodo() {
         clearValues();
         hideModal();
     })
+}
+
+// Create a function to validate user input
+function validateInput(form) {
+    const inputTitle = form.getElementById('todo-title');
+    const inputDueDate = form.getElementById('dueDate');
+    const inputPriority = form.dataset.priority;
+
+    const title = inputTitle.value;
+    const dueDate = inputDueDate.value;
+
+    if ((title === '') || (dueDate === '') || (inputPriority === '')){
+        alert("Fields are required (Title, Due Date, Priority, Project)");
+        return;
+    }
 }

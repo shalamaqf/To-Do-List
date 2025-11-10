@@ -53,11 +53,11 @@
                 <h1 id="todo-modal-header"></h1>
                 <div class="input title-container">
                     <label for="todo-title">Todo's Title:</label>
-                    <input type="text" id="todo-title" name="input_title">
+                    <input type="text" id="todo-title" name="input_title" required>
                 </div>
                 <div class="input dueDate-container">
                     <label for="dueDate">Due Date:</label>
-                    <input type="datetime-local" id="dueDate" name="input_dueDate">
+                    <input type="datetime-local" id="dueDate" name="input_dueDate" required>
                 </div>
                 <div class="input desc-container">
                     <label for="desc">Description:</label>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="input priority-container">
                     <label>Priority:</label>
-                    <div id="priority-button-container">
+                    <div id="priority-button-container" required>
                            <button type="button" class="priority-button flexible">Flexible</button>
                            <button type="button" class="priority-button important">Important</button>
                            <button type="button" class="priority-button urgent">Urgent</button>
