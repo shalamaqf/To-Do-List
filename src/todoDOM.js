@@ -328,3 +328,19 @@ function populateForm(todo, form) {
         button.classList.toggle('show', button.textContent === todo.priority);
     })
 }
+
+// Create a function to set todo's new properties
+function setNewTodoProperties(form, todo) {
+    todo.setTitle = form.querySelector('#todo-title').value;
+    todo.setDueDate = form.querySelector('#dueDate').value;
+    todo.setDesc = form.querySelector('#desc').value;
+    todo.setNote = form.querySelector('#note').value;
+    todo.isComplete = form.querySelector('#checklist').checked;
+
+    // Set the new project
+    const projectTitle = form.querySelector('#project').value;
+    moveTodo(todo, projectTitle);
+
+    // Set the new priority
+   todo.setPriority = form.dataset.priority; 
+}
