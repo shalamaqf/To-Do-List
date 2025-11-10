@@ -11,22 +11,26 @@ export function renderTodo(todo) {
     const todoDueDate = document.createElement('p');
     const todoPriority = document.createElement('p');
     const todoCompleted = document.createElement('p');
+    const seeDetailsBtn = document.createElement('button');
 
     todoContainer.className = 'todo-container';
     todoTitle.className = 'todo todo-title';
     todoDueDate.className = 'todo todo-dueDate';
     todoPriority.className = 'todo todo-priority';
     todoCompleted.className = 'todo todo-completed';
+    seeDetailsBtn.className = 'see todo-btn';
 
     todoTitle.textContent = todo.title;
     todoDueDate.textContent = todo.dueDate;
     todoPriority.textContent = todo.priority;
     todoCompleted.textContent = todo.isComplete ? '✔' : '✖';
+    seeDetailsBtn.textContent = 'See Details';
 
     todoContainer.appendChild(todoTitle);
     todoContainer.appendChild(todoDueDate);
     todoContainer.appendChild(todoPriority);
     todoContainer.appendChild(todoCompleted);
+    todoContainer.appendChild(seeDetailsBtn);
     todoListContainer.appendChild(todoContainer);
 
     return todoContainer;
@@ -223,4 +227,11 @@ function validateInput(form) {
     }
 
     return true;
+}
+
+// Attach an event listener to see the todo's details
+function seeTodoDetails(seeDetailsBtn, todo, todoContainer) {
+    seeDetailsBtn.addEventListener('click', () => {
+        renderTodoDetails(todo, todoContainer);
+    })
 }
