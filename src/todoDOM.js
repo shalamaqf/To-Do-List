@@ -193,7 +193,12 @@ export function setupFormAddTodo() {
     addButton.addEventListener('click', (e) => {
         // Todo's project
         const projectTitle = selectProject.value;
+
         e.preventDefault();
+
+        // Validate user's input
+        if (!validateInput(form)) return;
+
         createTodoFromModal(form, projectTitle);
     })
 
@@ -205,8 +210,8 @@ export function setupFormAddTodo() {
 
 // Create a function to validate user input
 function validateInput(form) {
-    const inputTitle = form.getElementById('todo-title');
-    const inputDueDate = form.getElementById('dueDate');
+    const inputTitle = form.querySelector('#todo-title');
+    const inputDueDate = form.querySelector('#dueDate');
     const inputPriority = form.dataset.priority;
 
     const title = inputTitle.value;
@@ -214,6 +219,8 @@ function validateInput(form) {
 
     if ((title === '') || (dueDate === '') || (inputPriority === '')){
         alert("Fields are required (Title, Due Date, Priority, Project)");
-        return;
+        return false;
     }
+
+    return true;
 }
