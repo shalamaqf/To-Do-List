@@ -3,7 +3,9 @@ import { createTodo } from './todoManager.js';
 import { getProject, viewProjectList } from './projectManager.js';
 import { storeProject } from './storage.js';
 
-// Create a function to render \todo DOM elements
+
+// RENDER TODO //
+// Create a function to render todo DOM elements
 export function renderTodo(todo) {
     const todoListContainer = document.getElementById('todoList-container');
     const todoContainer = document.createElement('div');
@@ -63,6 +65,8 @@ export function renderTodoDetails(todo, todoContainer) {
     
 }
 
+
+// MODAL //
 // Create a function to show the todo modal
 function showModal() {
     const modalContainer = document.querySelector('.todo.modal-container');
@@ -86,6 +90,8 @@ function clearValues() {
     }
 }
 
+
+// LOGIC TO ADD TODO //
 // Create a function to create a todo and push in to spesific project
 function createTodoFromModal(form, projectTitle) {
     const title = document.getElementById('todo-title').value;
@@ -148,23 +154,8 @@ function selectedPriority(form) {
     })
 }
 
-// Create a function to drop down the project list
-function dropDownProjects(form) {
-    // Get the project list
-    const projectList = viewProjectList();
-    const select = form.querySelector('#project');
 
-    // Clear the existing drop down
-    select.innerHTML = "";
-
-    // Create option element for each project
-    projectList.forEach (project => {
-        const option = document.createElement('option');
-        option.textContent = project.title;
-        select.appendChild(option);
-    })
-}
-
+// SETUP MODAL FORM // 
 // Create a function to setup the add todo button
 export function setupAddTodoButton() {
     const addButton = document.getElementById('add-todo-button');
@@ -181,6 +172,23 @@ export function setupAddTodoButton() {
         submitAdd.textContent = "Add";
         modalHeader.textContent = "Add Todo";
         showModal();
+    })
+}
+
+// Create a function to drop down the project list
+function dropDownProjects(form) {
+    // Get the project list
+    const projectList = viewProjectList();
+    const select = form.querySelector('#project');
+
+    // Clear the existing drop down
+    select.innerHTML = "";
+
+    // Create option element for each project
+    projectList.forEach (project => {
+        const option = document.createElement('option');
+        option.textContent = project.title;
+        select.appendChild(option);
     })
 }
 
@@ -216,6 +224,8 @@ export function setupFormAddTodo() {
     })
 }
 
+
+// VALIDATE USER'S INPUT //
 // Create a function to validate user input
 function validateInput(form) {
     const inputTitle = form.querySelector('#todo-title');
@@ -233,6 +243,8 @@ function validateInput(form) {
     return true;
 }
 
+
+// SEE DETAILS BUTTON LOGIC //
 // Attach an event listener to see the todo's details
 function setupDetailsBtn(seeDetailsBtn, todo, todoContainer) {
     seeDetailsBtn.addEventListener('click', () => {
