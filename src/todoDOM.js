@@ -289,4 +289,22 @@ function removeDetails(todoContainer) {
     if (project) project.remove();
 }
 
-// CLEAR THE CHECKLIST INPUT //
+
+// LOGIC EDIT TODO //
+// Create a function to setup the edit todo button
+function setupEditButton(editBtn, todo, todoContainer) {
+    const form = document.getElementById('todo-form-modal');
+    const submitAdd = document.getElementById('submit-todo-button');
+    const modalHeader = document.getElementById('todo-modal-header');
+    const selectProject = form.querySelector('#project');
+
+    // Attach the event listener
+    editBtn.addEventListener('click', () => {
+        dropDownProjects(form);
+        form.dataset.mode = "edit";
+        submitAdd.textContent = 'Update';
+        modalHeader.textContent = 'Edit Todo';
+        selectProject.value = todo.project;
+        showModal();
+    })
+}
