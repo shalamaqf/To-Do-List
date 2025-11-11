@@ -41,6 +41,9 @@ export function renderTodo(todo) {
     todoContainer.appendChild(editBtn);
     todoListContainer.appendChild(todoContainer);
 
+    // Set the todo ID on dataset of todoContainer
+    todoContainer.dataset.todoId = todo.id;
+
     setupDetailsBtn(seeDetailsBtn, todo, todoContainer);
     setupEditButton(editBtn, todo, todoContainer);
 
@@ -60,7 +63,7 @@ export function renderTodoDetails(todo, todoContainer) {
 
     todoDesc.textContent = 'Description: ' + todo.desc;
     todoNote.textContent = 'Note: ' + todo.note;
-    todoProject.textContent = 'Project: ' + todo.project;
+    todoProject.textContent = 'Project: ' + todo.project.title;
 
     todoContainer.appendChild(todoDesc);
     todoContainer.appendChild(todoNote);
@@ -307,7 +310,7 @@ function setupEditButton(editBtn, todo, todoContainer) {
     editBtn.addEventListener('click', () => {
         dropDownProjects(form);
         form.dataset.mode = "edit";
-        form.dataset.todoID = todo.id;
+        form.dataset.todoId = todo.id;
         submitAdd.textContent = 'Update';
         modalHeader.textContent = 'Edit Todo';
         selectProject.value = todo.project.title;
@@ -354,6 +357,9 @@ function setNewTodoProperties(form, todo) {
 
 // Create a function to edit the todo
 function editTodo(todo, form) {
+    // Get the todo list container
+    const todoListContainer = document.getElementById('todoList-container');
+
     // Validate the user input
     if (!validateInput(form)) return;
     
@@ -365,6 +371,15 @@ function editTodo(todo, form) {
 
     // Store the new update in local storage
     storeProject(todo.project);
+
+    // Delete the todo DOM before updated
+    const oldTodoContainer = document.querySelector(`[data-todo-id="${form.dataset.todoId}"]`);
+    console.log("Old todo container:", oldTodoContainer);
+
+    if (oldTodoContainer) oldTodoContainer.remove();
+
+    // Re-render the updated todo
+    renderTodo(todo);
 }
 
 
@@ -377,8 +392,8 @@ function submitLogic(e, form, project) {
     }
 
     if (form.dataset.mode === "edit") {
-        const todoID = Number(form.dataset.todoID);
-        const todo = findTodoById(todoID, project)
+        const todoID = Number(form.dataset.todoId);
+        const todo = findTodoById(todoID, project);
         editTodo(todo, form);
     }
 }
