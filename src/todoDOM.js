@@ -1,5 +1,5 @@
 // Import
-import { createTodo, moveTodo } from './todoManager.js';
+import { createTodo, moveTodo, findTodoById } from './todoManager.js';
 import { getProject, viewProjectList } from './projectManager.js';
 import { storeProject } from './storage.js';
 
@@ -126,9 +126,6 @@ function createTodoFromModal(form, projectTitle) {
     todo.setNote = note;
     todo.isComplete = completed;
     todo.setProject = inputProject;
-
-    // Set the todo id
-    form.dataset.todoID = todo.id;
 
     // Update the project in local storage
     const project = getProject(projectTitle);
@@ -304,6 +301,7 @@ function setupEditButton(editBtn, todo, todoContainer) {
     editBtn.addEventListener('click', () => {
         dropDownProjects(form);
         form.dataset.mode = "edit";
+        form.dataset.todoID = todo.id;
         submitAdd.textContent = 'Update';
         modalHeader.textContent = 'Edit Todo';
         selectProject.value = todo.project;
@@ -373,6 +371,8 @@ function submitLogic(e, form, project) {
     }
 
     if (form.dataset.mode === "edit") {
+        const todoID = form.dataset.todoID;
+        const todo = findTodoById(todoID, project)
         editTodo(todo, form);
     }
 }
