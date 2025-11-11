@@ -40,3 +40,8 @@ export function moveTodo(todo, projectTitle) {
         return;
     }
 }
+
+// Creata a function to find a todo by its id
+function findTodoById(todoID, project) {
+    return project.toDoList.find(todo => todo.id === todoID);
+}

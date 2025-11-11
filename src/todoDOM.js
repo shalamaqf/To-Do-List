@@ -350,7 +350,6 @@ function setNewTodoProperties(form, todo) {
 
 // Create a function to edit the todo
 function editTodo(todo, form) {
-    const todo = 
     // Validate the user input
     if (!validateInput(form)) return;
     
