@@ -360,3 +360,19 @@ function editTodo(todo, form) {
     // Store the new update in local storage
     storeProject(todo.project);
 }
+
+
+// FORM SUBMIT LOGIC //
+function submitLogic(e, form, project, todo) {
+    // Prevent event default
+    e.preventDefault();
+
+    if (form.dataset.mode === "add") {
+        createTodoFromModal(form, project.title);
+        return;
+    }
+
+    if (form.dataset.mode === "edit") {
+        editTodo(todo, form);
+    }
+}
