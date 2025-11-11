@@ -210,11 +210,11 @@ function dropDownProjects(form) {
 }
 
 // Create a function to setup the form modal to add todo
-export function setupFormAddTodo() {
+export function setupFormAddTodo(todo) {
     const form = document.getElementById('todo-form-modal');
     const cancelBtn = document.getElementById('cancel-todo-button');
     const selectProject = document.getElementById('project');
-    const addButton = document.getElementById('submit-todo-button');
+    const submitBtn = document.getElementById('submit-todo-button');
 
     // Attach event listeners to priority buttons
     selectedPriority(form);
@@ -223,16 +223,12 @@ export function setupFormAddTodo() {
         dropDownProjects(form);
     })
 
-    addButton.addEventListener('click', (e) => {
-        // Todo's project
-        const projectTitle = selectProject.value;
-
+    submitBtn.addEventListener('click', (e) => {
+        // Prevent event default
         e.preventDefault();
-
-        // Validate user's input
-        if (!validateInput(form)) return;
-
-        createTodoFromModal(form, projectTitle);
+        const projectTitle = selectProject.value;
+        const project = getProject(projectTitle);
+        submitLogic(e, form, project, todo);
     })
 
     cancelBtn.addEventListener('click', () => {
@@ -366,10 +362,8 @@ function editTodo(todo, form) {
 
 
 // FORM SUBMIT LOGIC //
+// Create a function to determine the submit button logic (add/edit)
 function submitLogic(e, form, project, todo) {
-    // Prevent event default
-    e.preventDefault();
-
     if (form.dataset.mode === "add") {
         createTodoFromModal(form, project.title);
         return;
