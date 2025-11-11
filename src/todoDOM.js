@@ -127,6 +127,9 @@ function createTodoFromModal(form, projectTitle) {
     todo.isComplete = completed;
     todo.setProject = inputProject;
 
+    // Set the todo id
+    form.dataset.todoID = todo.id;
+
     // Update the project in local storage
     const project = getProject(projectTitle);
     storeProject(project);
@@ -347,6 +350,7 @@ function setNewTodoProperties(form, todo) {
 
 // Create a function to edit the todo
 function editTodo(todo, form) {
+    const todo = 
     // Validate the user input
     if (!validateInput(form)) return;
     
@@ -363,7 +367,7 @@ function editTodo(todo, form) {
 
 // FORM SUBMIT LOGIC //
 // Create a function to determine the submit button logic (add/edit)
-function submitLogic(e, form, project, todo) {
+function submitLogic(e, form, project) {
     if (form.dataset.mode === "add") {
         createTodoFromModal(form, project.title);
         return;
