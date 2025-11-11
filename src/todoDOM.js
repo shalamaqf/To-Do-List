@@ -14,6 +14,7 @@ export function renderTodo(todo) {
     const todoPriority = document.createElement('p');
     const todoCompleted = document.createElement('p');
     const seeDetailsBtn = document.createElement('button');
+    const editBtn = document.createElement('button');
 
     todoContainer.className = 'todo-container';
     todoTitle.className = 'todo todo-title';
@@ -21,6 +22,7 @@ export function renderTodo(todo) {
     todoPriority.className = 'todo todo-priority';
     todoCompleted.className = 'todo todo-completed';
     seeDetailsBtn.className = 'see todo-btn';
+    editBtn.className = 'edit todo-btn';
 
     todo.showingDetails = false;
 
@@ -38,6 +40,7 @@ export function renderTodo(todo) {
     todoListContainer.appendChild(todoContainer);
 
     setupDetailsBtn(seeDetailsBtn, todo, todoContainer);
+    setupEditButton(editBtn, todo, todoContainer);
 
     return todoContainer;
 
