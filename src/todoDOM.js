@@ -305,6 +305,7 @@ function setupEditButton(editBtn, todo, todoContainer) {
         submitAdd.textContent = 'Update';
         modalHeader.textContent = 'Edit Todo';
         selectProject.value = todo.project;
+        populateForm(todo, form);
         showModal();
     })
 }
@@ -343,4 +344,19 @@ function setNewTodoProperties(form, todo) {
 
     // Set the new priority
    todo.setPriority = form.dataset.priority; 
+}
+
+// Create a function to edit the todo
+function editTodo(todo, form) {
+    // Validate the user input
+    if (!validateInput(form)) return;
+    
+    // Set the properties of todo with new input
+    setNewTodoProperties(form, todo);
+
+    // Hide the modal
+    hideModal()
+
+    // Store the new update in local storage
+    storeProject(todo.project);
 }
