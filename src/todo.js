@@ -8,6 +8,7 @@ export default class Todo {
         this.note = "";
         this.isComplete = false;
         this.project = undefined;
+        this.id = Date.now();
     }
 
     // Add a method to set the todo's new title
