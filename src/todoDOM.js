@@ -377,7 +377,7 @@ function submitLogic(e, form, project) {
     }
 
     if (form.dataset.mode === "edit") {
-        const todoID = form.dataset.todoID;
+        const todoID = Number(form.dataset.todoID);
         const todo = findTodoById(todoID, project)
         editTodo(todo, form);
     }
