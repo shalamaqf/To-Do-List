@@ -134,6 +134,7 @@ function createTodoFromModal(form, projectTitle) {
 
     // Update the project in local storage
     const project = getProject(projectTitle);
+    todo.project = project;
     storeProject(project);
 
     // Clear input values
@@ -215,7 +216,7 @@ function dropDownProjects(form) {
 }
 
 // Create a function to setup the form modal to add todo
-export function setupFormAddTodo() {
+export function setupFormTodo() {
     const form = document.getElementById('todo-form-modal');
     const cancelBtn = document.getElementById('cancel-todo-button');
     const selectProject = document.getElementById('project');
@@ -309,7 +310,7 @@ function setupEditButton(editBtn, todo, todoContainer) {
         form.dataset.todoID = todo.id;
         submitAdd.textContent = 'Update';
         modalHeader.textContent = 'Edit Todo';
-        selectProject.value = todo.project;
+        selectProject.value = todo.project.title;
         populateForm(todo, form);
         showModal();
     })
