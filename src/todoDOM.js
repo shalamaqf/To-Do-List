@@ -31,12 +31,14 @@ export function renderTodo(todo) {
     todoPriority.textContent = todo.priority;
     todoCompleted.textContent = todo.isComplete ? '✔' : '✖';
     seeDetailsBtn.textContent = 'See Details';
+    editBtn.textContent = 'Edit';
 
     todoContainer.appendChild(todoTitle);
     todoContainer.appendChild(todoDueDate);
     todoContainer.appendChild(todoPriority);
     todoContainer.appendChild(todoCompleted);
     todoContainer.appendChild(seeDetailsBtn);
+    todoContainer.appendChild(editBtn);
     todoListContainer.appendChild(todoContainer);
 
     setupDetailsBtn(seeDetailsBtn, todo, todoContainer);
@@ -118,6 +120,9 @@ function createTodoFromModal(form, projectTitle) {
     const note = document.getElementById('note').value;
     const completed = document.getElementById('checklist').checked;
     const inputProject = document.getElementById('project').value;
+
+    // Validate the user's input
+    if (!validateInput(form)) return;
 
     // Set the input as the todo's properties
     const todo = createTodo(title, dueDate, projectTitle);
@@ -210,7 +215,7 @@ function dropDownProjects(form) {
 }
 
 // Create a function to setup the form modal to add todo
-export function setupFormAddTodo(todo) {
+export function setupFormAddTodo() {
     const form = document.getElementById('todo-form-modal');
     const cancelBtn = document.getElementById('cancel-todo-button');
     const selectProject = document.getElementById('project');
@@ -228,7 +233,7 @@ export function setupFormAddTodo(todo) {
         e.preventDefault();
         const projectTitle = selectProject.value;
         const project = getProject(projectTitle);
-        submitLogic(e, form, project, todo);
+        submitLogic(e, form, project);
     })
 
     cancelBtn.addEventListener('click', () => {
