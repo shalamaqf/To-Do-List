@@ -311,6 +311,7 @@ function setupEditButton(editBtn, todo, todoContainer) {
         dropDownProjects(form);
         form.dataset.mode = "edit";
         form.dataset.todoId = todo.id;
+        form.dataset.projectTitle = todo.project.title;
         submitAdd.textContent = 'Update';
         modalHeader.textContent = 'Edit Todo';
         selectProject.value = todo.project.title;
@@ -357,9 +358,6 @@ function setNewTodoProperties(form, todo) {
 
 // Create a function to edit the todo
 function editTodo(todo, form) {
-    // Get the todo list container
-    const todoListContainer = document.getElementById('todoList-container');
-
     // Validate the user input
     if (!validateInput(form)) return;
     
@@ -370,6 +368,8 @@ function editTodo(todo, form) {
     hideModal()
 
     // Store the new update in local storage
+    const oldProject = getProject(form.dataset.projectTitle);
+    storeProject(oldProject);
     storeProject(todo.project);
 
     // Delete the todo DOM before updated
@@ -393,7 +393,8 @@ function submitLogic(e, form, project) {
 
     if (form.dataset.mode === "edit") {
         const todoID = Number(form.dataset.todoId);
-        const todo = findTodoById(todoID, project);
+        const oldProject = getProject(form.dataset.projectTitle);
+        const todo = findTodoById(todoID, oldProject);
         editTodo(todo, form);
     }
 }
