@@ -546,3 +546,19 @@ function renderProjectTodos(project) {
         renderTodo(todo);
     })
 }
+
+// Create a function to handle the DOM if a todo move to another project
+function handleMoveTodo(todo, newProject, oldProject) {
+    // Delete todo from old project
+    oldProject.deleteToDo(todo);
+
+    // Push todo to new project
+    newProject.addToDo(todo);
+
+    // Update the local storage
+    storeProject(oldProject);
+    storeProject(newProject);
+
+    // Re-render the new project
+    renderProjectTodos(newProject);
+}
