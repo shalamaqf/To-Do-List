@@ -398,3 +398,31 @@ function submitLogic(e, form, project) {
         editTodo(todo, form);
     }
 }
+
+
+// POPOVER //
+// Create a function to render popover DOM
+export function renderPopoverDOM() {
+    const popoverContainer = document.createElement('div');
+    const confirmMessage = document.createElement('p');
+    const buttonContainer = document.createElement('div');
+    const yesButton = document.createElement('button');
+    const noButton = document.createElement('button');
+
+    popoverContainer.id = 'popover-container';
+    confirmMessage.id = 'confirm-message';
+    buttonContainer.id = 'confirm-button-container';
+    yesButton.className = 'confirm-button yes';
+    noButton.className = 'confirm-button no';
+
+    confirmMessage.textContent = "Delete this todo?";
+    yesButton.textContent = "Yes";
+    noButton.textContent = "No";
+
+    buttonContainer.appendChild(yesButton);
+    buttonContainer.appendChild(noButton);
+    popoverContainer.appendChild(confirmMessage);
+    popoverContainer.appendChild(buttonContainer);
+
+    return popoverContainer;
+}
