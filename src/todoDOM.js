@@ -469,7 +469,7 @@ function handleDeleteTodo(todo) {
     const project = todo.project;
 
     // Delete todo from project's array
-    project.deleteTodo(todo);
+    project.deleteToDo(todo);
 
     // Update the local storage
     storeProject(project);    
