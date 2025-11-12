@@ -198,6 +198,7 @@ export function setupAddTodoButton() {
 
 
     addButton.addEventListener('click', () => {
+        hidePopover()
         dropDownProjects(form);
         selectProject.value = "Inbox";
         form.dataset.mode = "add";
@@ -275,6 +276,7 @@ function validateInput(form) {
 // Attach an event listener to see the todo's details
 function setupDetailsBtn(seeDetailsBtn, todo, todoContainer) {
     seeDetailsBtn.addEventListener('click', () => {
+        hidePopover();
         toggleTodoDetails(todo, seeDetailsBtn, todoContainer);
     })
 }
@@ -314,6 +316,7 @@ function setupEditButton(editBtn, todo, todoContainer) {
 
     // Attach the event listener
     editBtn.addEventListener('click', () => {
+        hidePopover();
         dropDownProjects(form);
         form.dataset.mode = "edit";
         form.dataset.todoId = todo.id;
@@ -435,6 +438,7 @@ export function renderPopoverDOM() {
 
 // Create a function to append/show popover
 function appendPopover(todoContainer) {
+    hidePopover();
     const popover = renderPopoverDOM();
     todoContainer.appendChild(popover);
 }
