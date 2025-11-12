@@ -198,6 +198,7 @@ export function setupAddTodoButton() {
 
 
     addButton.addEventListener('click', () => {
+        clearValues(form);
         hidePopover()
         dropDownProjects(form);
         selectProject.value = "Inbox";
