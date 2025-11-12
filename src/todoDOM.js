@@ -468,3 +468,11 @@ function handleDeleteTodo(todo) {
     // Update the local storage
     storeProject(project);    
 }
+
+// Create a function setup the delete button
+function setupDeleteBtn(deleteBtn, todo, todoContainer) {
+    deleteBtn.addEventListener('click', () => {
+        appendPopover(todoContainer);
+        setupPopover(todo);
+    })
+}
