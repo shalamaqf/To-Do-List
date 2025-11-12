@@ -439,6 +439,21 @@ function hidePopover() {
     if (popover) popover.remove();
 }
 
+// Create a function to setup the popover
+function setupPopover(todo) {
+    const yesButton = document.querySelector('.confirm-button.yes');
+    const noButton = document.querySelector('.confirm-button.no');
+
+    yesButton.addEventListener('click', () => {
+        handleDeleteTodo(todo);
+        hidePopover();
+    })
+
+    noButton.addEventListener('click', () => {
+        hidePopover();
+    })
+}
+
 
 // DELETE BUTTON AND LOGIC //
 // Create a function to handle the todo delete
