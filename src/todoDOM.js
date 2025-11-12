@@ -524,3 +524,11 @@ function setupDeleteBtn(deleteBtn, todo, todoContainer) {
         setupPopover(todo);
     })
 }
+
+
+// RENDER TODOS FOR A PROJECT/TODO DOM REFRESHER //
+// Create a function to delete/clear old todos DOM
+function clearTodoContainer() {
+    const todoListContainer = document.getElementById('todoList-container');
+    todoListContainer.innerHTML = "";
+}
