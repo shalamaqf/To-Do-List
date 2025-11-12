@@ -198,6 +198,9 @@ export function setupAddTodoButton() {
 
 
     addButton.addEventListener('click', () => {
+        // Toggle see details button
+        toggleAllDetails();
+
         // Clear and refresh form
         clearValues(form);
         hidePopover()
@@ -302,15 +305,21 @@ function toggleTodoDetails(todo, seeDetailsBtn, todoContainer) {
 // Create a function to set the details button in each todo
 function toggleAllDetails() {
     // Select all see details button
-    const seeDetailsButtons = document.querySelectorAll('.see-todo-btn');
+    const seeDetailsButtons = document.querySelectorAll('.see.todo-btn');
+    const todoContainers = document.querySelectorAll('.todo-container');
 
     // Get all project and loop each todo
     const projects = viewProjectList();
     projects.forEach(project => {
         const todos = project.toDoList;
         todos.forEach(todo => {
-            todo.showingDetails = false;
+            todo.showingDetails = false
         })
+    })
+
+    // Loop each container
+    todoContainers.forEach(container => {
+        removeDetails(container);
     })
 
     // Loop each button
@@ -340,8 +349,12 @@ function setupEditButton(editBtn, todo, todoContainer) {
 
     // Attach the event listener
     editBtn.addEventListener('click', () => {
+        // Toggle details button
+        toggleAllDetails();
+
         hidePopover();
         dropDownProjects(form);
+
         form.dataset.mode = "edit";
         form.dataset.todoId = todo.id;
         form.dataset.projectTitle = todo.project.title;
@@ -506,6 +519,7 @@ function handleDeleteTodo(todo) {
 // Create a function setup the delete button
 function setupDeleteBtn(deleteBtn, todo, todoContainer) {
     deleteBtn.addEventListener('click', () => {
+        toggleAllDetails();
         appendPopover(todoContainer);
         setupPopover(todo);
     })
