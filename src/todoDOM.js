@@ -1,7 +1,7 @@
 // Import
 import { createTodo, moveTodo, findTodoById } from './todoManager.js';
-import { getProject, viewProjectList } from './projectManager.js';
-import { storeProject } from './storage.js';
+import { deleteProject, getProject, viewProjectList } from './projectManager.js';
+import { deleteProjectStorage, storeProject } from './storage.js';
 
 
 // RENDER TODO //
@@ -437,4 +437,19 @@ function appendPopover(todoContainer) {
 function hidePopover() {
     const popover = document.getElementById('popover-container');
     if (popover) popover.remove();
+}
+
+
+// DELETE BUTTON AND LOGIC //
+// Create a function to handle the todo delete
+function handleDeleteTodo(todo) {
+    // Get the project
+    const projectTitle = todo.project.title;
+    const project = todo.project;
+
+    // Delete todo from project's array
+    project.deleteTodo(todo);
+
+    // Update the local storage
+    storeProject(project);    
 }
