@@ -426,3 +426,9 @@ export function renderPopoverDOM() {
 
     return popoverContainer;
 }
+
+// Create a function to append/show popover
+function appendPopover(todoContainer) {
+    const popover = renderPopoverDOM();
+    todoContainer.appendChild(popover);
+}
