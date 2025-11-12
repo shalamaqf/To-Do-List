@@ -532,3 +532,17 @@ function clearTodoContainer() {
     const todoListContainer = document.getElementById('todoList-container');
     todoListContainer.innerHTML = "";
 }
+
+// Create a function to render each project's dom
+function renderProjectTodos(project) {
+    // Clear todoList container
+    clearTodoContainer();
+    
+    // Get the todos array
+    const todos = project.toDoList;
+
+    // Render each todo
+    todos.forEach(todo => {
+        renderTodo(todo);
+    })
+}
