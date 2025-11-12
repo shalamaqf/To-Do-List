@@ -414,18 +414,8 @@ function editTodo(todo, form) {
     hideModal()
 
     // Store the new update in local storage
-    const oldProject = getProject(form.dataset.projectTitle);
-    storeProject(oldProject);
+    storeProject(getProject(form.dataset.projectTitle));
     storeProject(todo.project);
-
-    // Delete the todo DOM before updated
-    const oldTodoContainer = document.querySelector(`[data-todo-id="${form.dataset.todoId}"]`);
-    console.log("Old todo container:", oldTodoContainer);
-
-    if (oldTodoContainer) oldTodoContainer.remove();
-
-    // Re-render the updated todo
-    renderTodo(todo);
 }
 
 
@@ -434,14 +424,24 @@ function editTodo(todo, form) {
 function submitLogic(e, form, project) {
     if (form.dataset.mode === "add") {
         createTodoFromModal(form, project.title);
+        renderProjectTodos(project);
         return;
     }
 
     if (form.dataset.mode === "edit") {
         const todoID = Number(form.dataset.todoId);
         const oldProject = getProject(form.dataset.projectTitle);
+        const newProject = getProject(form.querySelector('#project').value);
         const todo = findTodoById(todoID, oldProject);
         editTodo(todo, form);
+
+        // Handle DOM if the todo move to another project
+        if (oldProject.title !== todo.project.title) {
+            handleMoveTodo(todo, newProject, oldProject);
+        }
+        else {
+            renderProjectTodos(oldProject);
+        }
     }
 }
 
@@ -493,6 +493,7 @@ function setupPopover(todo) {
 
     yesButton.addEventListener('click', () => {
         handleDeleteTodo(todo);
+        renderProjectTodos(todo.project);
         hidePopover();
     })
 
