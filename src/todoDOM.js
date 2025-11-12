@@ -198,9 +198,12 @@ export function setupAddTodoButton() {
 
 
     addButton.addEventListener('click', () => {
+        // Clear and refresh form
         clearValues(form);
         hidePopover()
         dropDownProjects(form);
+
+        // Set the form
         selectProject.value = "Inbox";
         form.dataset.mode = "add";
         submitAdd.textContent = "Add";
@@ -294,6 +297,26 @@ function toggleTodoDetails(todo, seeDetailsBtn, todoContainer) {
         seeDetailsBtn.textContent = 'See Details';
         todo.showingDetails = false;
     }
+}
+
+// Create a function to set the details button in each todo
+function toggleAllDetails() {
+    // Select all see details button
+    const seeDetailsButtons = document.querySelectorAll('.see-todo-btn');
+
+    // Get all project and loop each todo
+    const projects = viewProjectList();
+    projects.forEach(project => {
+        const todos = project.toDoList;
+        todos.forEach(todo => {
+            todo.showingDetails = false;
+        })
+    })
+
+    // Loop each button
+    seeDetailsButtons.forEach(button => {
+        button.textContent = 'See Details';
+    })
 }
 
 // Create a function to remove the todo's details
