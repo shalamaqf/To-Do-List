@@ -15,6 +15,7 @@ export function renderTodo(todo) {
     const todoCompleted = document.createElement('p');
     const seeDetailsBtn = document.createElement('button');
     const editBtn = document.createElement('button');
+    const deleteBtn = document.createElement('button');
 
     todoContainer.className = 'todo-container';
     todoTitle.className = 'todo todo-title';
@@ -23,6 +24,7 @@ export function renderTodo(todo) {
     todoCompleted.className = 'todo todo-completed';
     seeDetailsBtn.className = 'see todo-btn';
     editBtn.className = 'edit todo-btn';
+    deleteBtn.className = 'delete todo-btn';
 
     todo.showingDetails = false;
 
@@ -32,6 +34,7 @@ export function renderTodo(todo) {
     todoCompleted.textContent = todo.isComplete ? '✔' : '✖';
     seeDetailsBtn.textContent = 'See Details';
     editBtn.textContent = 'Edit';
+    deleteBtn.textContent = '-';
 
     todoContainer.appendChild(todoTitle);
     todoContainer.appendChild(todoDueDate);
@@ -39,13 +42,16 @@ export function renderTodo(todo) {
     todoContainer.appendChild(todoCompleted);
     todoContainer.appendChild(seeDetailsBtn);
     todoContainer.appendChild(editBtn);
+    todoContainer.appendChild(deleteBtn);
     todoListContainer.appendChild(todoContainer);
 
     // Set the todo ID on dataset of todoContainer
     todoContainer.dataset.todoId = todo.id;
 
+    // Buttons setup
     setupDetailsBtn(seeDetailsBtn, todo, todoContainer);
     setupEditButton(editBtn, todo, todoContainer);
+    setupDeleteBtn(deleteBtn, todo, todoContainer);
 
     return todoContainer;
 
