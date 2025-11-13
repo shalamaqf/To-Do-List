@@ -59,3 +59,8 @@ let currentProject = undefined;
 export function setCurrentProject(project) {
     currentProject = project;
 }
+
+// Create a getter for current project
+export function getCurrentProject() {
+    return currentProject;
+}
