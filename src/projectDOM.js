@@ -1,4 +1,4 @@
-import { getProject, addProject, deleteProject, inbox } from './projectManager.js';
+import { getProject, addProject, deleteProject, inbox, setCurrentProject } from './projectManager.js';
 import { deleteProjectStorage, storeProject } from "./storage.js";
 import { renderProjectTodos, hidePopover as hidePopoverTodo, toggleAllDetails } from './todoDOM.js';
 
@@ -295,6 +295,7 @@ function removePopover() {
 // Create a function to attach an event to project button //
 function setupProjectButton(projectBtn, project) {
     projectBtn.addEventListener('click', () => {
+        setCurrentProject(project);
         toggleAllDetails();
         removePopover();
         hidePopoverTodo();
