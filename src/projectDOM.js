@@ -1,5 +1,6 @@
 import { getProject, addProject, deleteProject, inbox } from './projectManager.js';
 import { deleteProjectStorage, storeProject } from "./storage.js";
+import { renderProjectTodos } from './todoDOM.js';
 
 
 // Create a function to render DOM elements for default project's title block
@@ -15,6 +16,8 @@ export function renderDefaultProjectTitle(inbox) {
 
     projectTitleDiv.appendChild(projectTitleButton);
     projectListContainer.appendChild(projectTitleDiv);
+
+    setupProjectButton(projectTitleDiv, inbox);
     
     return projectTitleDiv;
 }
@@ -47,6 +50,7 @@ export function renderProjectTitle(project) {
     projectTitleDiv.appendChild(projectBtnContainer);
     projectListContainer.appendChild(projectTitleDiv);
 
+    setupProjectButton(projectTitleButton, project);
     setupRenameProject(renameProjectBtn, project);
     setupDeleteProject(deleteProjectBtn, project, projectTitleDiv);
 
@@ -286,6 +290,14 @@ function removePopover() {
     if (popover) popover.remove();
 }
 
+
+// SHOW PROJECT'S TODOS //
+// Create a function to attach an event to project button //
+function setupProjectButton(projectBtn, project) {
+    projectBtn.addEventListener('click', () => {
+        renderProjectTodos(project);
+    })
+}
 
 // Create a function to initiallize the project DOM
 export function initProjectDOM(inbox) {
