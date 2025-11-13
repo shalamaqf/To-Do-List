@@ -51,3 +51,6 @@ export function getProject(title) {
 export function viewProjectList() {
     return projectList.slice();
 }
+
+// Create a variable to store the current project
+let currentProject = undefined;
