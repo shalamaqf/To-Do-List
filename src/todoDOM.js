@@ -79,6 +79,15 @@ function renderTodoDetails(todo, todoContainer) {
     
 }
 
+// Create a function to edit text content of todos header
+function todosProject() {
+    const currentProject = getCurrentProject();
+    const todoListHeader = document.querySelector('.todoList-header');
+    if (!todoListHeader || !currentProject) return;
+
+    todoListHeader.textContent = currentProject.title + ' Todos';
+}
+
 
 // MODAL //
 // Create a function to show the todo modal
@@ -594,6 +603,7 @@ function handleMoveTodo(todo, newProject, oldProject) {
 
 // INIT FUNCTION TODO DOM //
 export function initTodoDOM() {
+    todosProject();
     setupAddTodoButton();
     setupFormTodo();
 }
