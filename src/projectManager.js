@@ -54,3 +54,8 @@ export function viewProjectList() {
 
 // Create a variable to store the current project
 let currentProject = undefined;
+
+// Create a setter for current project
+export function setCurrentProject(project) {
+    currentProject = project;
+}
