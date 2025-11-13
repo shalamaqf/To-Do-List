@@ -580,10 +580,7 @@ function renderProjectTodos(project) {
 function handleMoveTodo(todo, newProject, oldProject) {
     // Delete todo from old project
     oldProject.deleteToDo(todo);
-
-    // Push todo to new project
-    newProject.addToDo(todo);
-
+    
     // Update the local storage
     storeProject(oldProject);
     storeProject(newProject);
