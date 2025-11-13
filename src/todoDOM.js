@@ -58,7 +58,7 @@ export function renderTodo(todo) {
 }
 
 // Create a function to render the todo's details
-export function renderTodoDetails(todo, todoContainer) {
+function renderTodoDetails(todo, todoContainer) {
     const todoDesc = document.createElement('p');
     const todoNote = document.createElement('p');
     const todoProject = document.createElement('p');
@@ -189,7 +189,7 @@ function selectedPriority(form) {
 
 // SETUP MODAL FORM // 
 // Create a function to setup the add todo button
-export function setupAddTodoButton() {
+function setupAddTodoButton() {
     const addButton = document.getElementById('add-todo-button');
     const form = document.getElementById('todo-form-modal');
     const submitAdd = document.getElementById('submit-todo-button');
@@ -233,7 +233,7 @@ function dropDownProjects(form) {
 }
 
 // Create a function to setup the form modal to add todo
-export function setupFormTodo() {
+function setupFormTodo() {
     const form = document.getElementById('todo-form-modal');
     const cancelBtn = document.getElementById('cancel-todo-button');
     const selectProject = document.getElementById('project');
@@ -476,7 +476,7 @@ function submitLogic(e, form, project) {
 
 // POPOVER //
 // Create a function to render popover DOM
-export function renderPopoverDOM() {
+function renderPopoverDOM() {
     const popoverContainer = document.createElement('div');
     const confirmMessage = document.createElement('p');
     const buttonContainer = document.createElement('div');
@@ -588,4 +588,11 @@ function handleMoveTodo(todo, newProject, oldProject) {
     // Remove the todo DOM from old project
     const todoDOM = document.querySelector(`[data-todo-id="${todo.id}"]`);
     if (todoDOM) todoDOM.remove();
+}
+
+
+// INIT FUNCTION TODO DOM //
+export function initTodoDOM() {
+    setupAddTodoButton();
+    setupFormTodo();
 }
