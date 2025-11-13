@@ -585,6 +585,7 @@ function handleMoveTodo(todo, newProject, oldProject) {
     storeProject(oldProject);
     storeProject(newProject);
 
-    // Re-render the new project
-    renderProjectTodos(newProject);
+    // Remove the todo DOM from old project
+    const todoDOM = document.querySelector(`[data-todo-id="${todo.id}"]`);
+    if (todoDOM) todoDOM.remove();
 }
