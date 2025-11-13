@@ -53,7 +53,7 @@ export function viewProjectList() {
 }
 
 // Create a variable to store the current project
-let currentProject = undefined;
+let currentProject = getProject("Inbox");
 
 // Create a setter for current project
 export function setCurrentProject(project) {
