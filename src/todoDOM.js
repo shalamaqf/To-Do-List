@@ -291,6 +291,9 @@ function setupDetailsBtn(seeDetailsBtn, todo, todoContainer) {
 // Create a function to toggle the todo's details
 function toggleTodoDetails(todo, seeDetailsBtn, todoContainer) {
     if (!todo.showingDetails) {
+        // Prevent duplicate details showed
+        toggleAllDetails();
+        
         renderTodoDetails(todo, todoContainer);
         seeDetailsBtn.textContent = 'Hide Details';
         todo.showingDetails = true;
