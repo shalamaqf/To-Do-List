@@ -418,6 +418,29 @@ function editTodo(todo, form) {
     storeProject(todo.project);
 }
 
+// Create a function to render the new updated todo
+function updateTodoDOM(todo) {
+    // Get the todo's container
+    const todoContainer = document.querySelector(`[data-todo-id="${todo.id}"]`)
+    if (!todoContainer) return;
+
+    const todoTitle = todoContainer.querySelector('.todo-title');
+    const todoDueDate = todoContainer.querySelector('.todo-dueDate');
+    const todoPriority = todoContainer.querySelector('.todo-priority');
+    const todoCompleted = todoContainer.querySelector('.todo-completed');
+    const todoDesc = todoContainer.querySelector('.todo-desc');
+    const todoNote = todoContainer.querySelector('.todo-note');
+    const todoProject = todoContainer.querySelector('.todo-project');
+
+    if (todoTitle) todoTitle.textContent = todo.title;
+    if (todoDueDate)todoDueDate.textContent = todo.dueDate;
+    if (todoPriority) todoPriority.textContent = todo.priority;
+    if (todoCompleted) todoCompleted.textContent = todo.isComplete ? '✔' : '✖';
+    if (todoDesc) todoDesc.textContent = todo.desc;
+    if (todoNote) todoNote.textContent = todo.note;
+    if (todoProject) todoProject.textContent = todo.project.title;
+}
+
 
 // FORM SUBMIT LOGIC //
 // Create a function to determine the submit button logic (add/edit)
