@@ -1,6 +1,6 @@
 // Import
 import { createTodo, moveTodo, findTodoById } from './todoManager.js';
-import { deleteProject, getProject, viewProjectList } from './projectManager.js';
+import { deleteProject, getCurrentProject, getProject, viewProjectList } from './projectManager.js';
 import { deleteProjectStorage, storeProject } from './storage.js';
 
 
@@ -207,10 +207,11 @@ function setupAddTodoButton() {
         dropDownProjects(form);
 
         // Set the form
-        selectProject.value = "Inbox";
+        const currentProject = getCurrentProject();
+        selectProject.value = currentProject.title;
         form.dataset.mode = "add";
         submitAdd.textContent = "Add";
-        modalHeader.textContent = "Add Todo";
+        modalHeader.textContent = `Add Todo To ${currentProject.title} Project`;
         showModal();
     })
 }
