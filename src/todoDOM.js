@@ -396,7 +396,9 @@ function setNewTodoProperties(form, todo) {
 
     // Set the new project
     const projectTitle = form.querySelector('#project').value;
-    moveTodo(todo, projectTitle);
+    if (todo.project.title !== projectTitle) {
+        moveTodo(todo, projectTitle);
+    }
 
     // Set the new priority
    todo.setPriority = form.dataset.priority; 
@@ -463,7 +465,7 @@ function submitLogic(e, form, project) {
             handleMoveTodo(todo, newProject, oldProject);
         }
         else {
-            renderProjectTodos(oldProject);
+            updateTodoDOM(todo);
         }
     }
 }
