@@ -4,7 +4,7 @@ import { renderProjectTodos, hidePopover as hidePopoverTodo, toggleAllDetails } 
 
 
 // Create a function to render DOM elements for default project's title block
-export function renderDefaultProjectTitle(inbox) {
+function renderDefaultProjectTitle(inbox) {
     const projectListContainer = document.querySelector("#projectList-container");
     const projectTitleDiv = document.createElement("div");
     const projectTitleButton = document.createElement("button");
@@ -24,7 +24,7 @@ export function renderDefaultProjectTitle(inbox) {
 
 
 // Create a function to render DOM elements for project's title block
-export function renderProjectTitle(project) {
+function renderProjectTitle(project) {
     const projectListContainer = document.querySelector("#projectList-container");
     const projectTitleDiv = document.createElement("div");
     const projectTitleButton = document.createElement("button");
@@ -77,7 +77,7 @@ function clearInputValue() {
 
 
 // Create a function to create a project from the modal
-export function createProjectFromModal() {
+function createProjectFromModal() {
     // Get the input
     const input = document.getElementById("project-title");
     const projectTitle = input.value;
@@ -101,7 +101,7 @@ export function createProjectFromModal() {
 
 
 // Create a function to add the event listener to add button
-export function setupAddProject() {
+function setupAddProject() {
     const addButton = document.getElementById("add-project-button");
     const form = document.getElementById("project-form-modal");
     const submitAdd = document.getElementById("submit-project-button");
@@ -152,7 +152,7 @@ function renameProjectFromModal(project) {
 
 
 // Create a function to setup the modal for rename project
-export function setupRenameProject(renameProjectBtn, project) {
+function setupRenameProject(renameProjectBtn, project) {
     const form = document.getElementById("project-form-modal");
     const submitRename = document.getElementById("submit-project-button");
     const modalHeader = document.getElementById('modal-header');
@@ -169,7 +169,7 @@ export function setupRenameProject(renameProjectBtn, project) {
 
 
 // Create a submit function to determine logic to run on submit button
-export function submitLogic(e, form) {
+function submitLogic(e, form) {
     e.preventDefault();
 
     // Add project logic
@@ -188,7 +188,7 @@ export function submitLogic(e, form) {
 
 
 // Create a function to attach an event listener to form
-export function setupFormProject() {
+function setupFormProject() {
     const form = document.getElementById("project-form-modal");
     const cancelBtn = document.getElementById("cancel-project-button");
 
@@ -210,7 +210,7 @@ function deleteProjectDOM(project) {
 }
 
 // Create a function to delete project in global array, storage, and DOM
-export function handleDeleteProject(project) {
+function handleDeleteProject(project) {
     // Get the project title
     const projectTitle = project.title;
 
@@ -236,7 +236,7 @@ function setupDeleteProject(deleteBtn, project, projectTitleDiv) {
 }
 
 // Create a function to render popover DOM
-export function renderPopoverDOM() {
+function renderPopoverDOM() {
     const popoverContainer = document.createElement('div');
     const confirmMessage = document.createElement('p');
     const buttonContainer = document.createElement('div');
