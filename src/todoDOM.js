@@ -510,7 +510,7 @@ function appendPopover(todoContainer) {
 
 // Create a function to hide the popover
 function hidePopover() {
-    const popover = document.getElementById('popover-container');
+    const popover = document.getElementById('popover-container-todo');
     if (popover) popover.remove();
 }
 

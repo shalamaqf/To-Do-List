@@ -286,7 +286,7 @@ function setupPopover(project) {
 
 // Create a function to remove popover from DOM
 function removePopover() {
-    const popover = document.getElementById('popover-container');
+    const popover = document.getElementById('popover-container-project');
     if (popover) popover.remove();
 }
 
