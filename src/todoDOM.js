@@ -306,7 +306,7 @@ function toggleTodoDetails(todo, seeDetailsBtn, todoContainer) {
 }
 
 // Create a function to set the details button in each todo
-function toggleAllDetails() {
+export function toggleAllDetails() {
     // Select all see details button
     const seeDetailsButtons = document.querySelectorAll('.see.todo-btn');
     const todoContainers = document.querySelectorAll('.todo-container');
@@ -509,7 +509,7 @@ function appendPopover(todoContainer) {
 }
 
 // Create a function to hide the popover
-function hidePopover() {
+export function hidePopover() {
     const popover = document.getElementById('popover-container-todo');
     if (popover) popover.remove();
 }
