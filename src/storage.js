@@ -85,15 +85,17 @@ function parseProject(projectStr) {
 }
 
 // Create a function to load the raw data and make them the actual data
-function loadData() {
+export function loadData() {
     // Create an array to store the raw data
     let rawDataArray = [];
 
     // Loop the raw data
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
-        const projectStr = localStorage.getItem(key);
-        rawDataArray.push(projectStr);
+        if (key !== "CURRENT_PROJECT") {
+            const projectStr = localStorage.getItem(key);
+            rawDataArray.push(projectStr);
+        }
     }
 
     // Parse and deserialize the raw data
