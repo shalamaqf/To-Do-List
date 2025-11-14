@@ -1,4 +1,4 @@
-import { getProject, addProject, deleteProject, inbox, setCurrentProject, getCurrentProject } from './projectManager.js';
+import { getProject, addProject, deleteProject, inbox, setCurrentProject, getCurrentProject, viewProjectList } from './projectManager.js';
 import { deleteProjectStorage, storeProject } from "./storage.js";
 import { renderProjectTodos, hidePopover as hidePopoverTodo, toggleAllDetails, todosProject } from './todoDOM.js';
 
@@ -230,6 +230,10 @@ function handleDeleteProject(project) {
 
     // Delete project in DOM
     deleteProjectDOM(project);
+
+    // Set the current project
+    const projectArray = viewProjectList();
+    setCurrentProject(projectArray[projectArray.length - 1]);
 }
 
 // Create a function to setup the delete button in a project
