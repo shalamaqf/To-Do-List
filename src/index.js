@@ -1,7 +1,8 @@
-import { initProjectDOM } from "./projectDOM.js";
-import { inbox } from "./projectManager.js";
+import { initProjectDOM } from "./projectDOM.js"
+import { loadData } from "./storage.js";
 import "./style.css";
 import { initTodoDOM } from "./todoDOM.js";
 
-initProjectDOM(inbox);
+loadData();
+initProjectDOM();
 initTodoDOM();
