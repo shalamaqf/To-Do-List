@@ -67,7 +67,7 @@ export function getCurrentProject() {
 }
 
 // Create a function to retrieve the current project
-function retrieveCurrentProject() {
+export function retrieveCurrentProject() {
     // Get the current project title
     const currentProjectTitle = getCurrentProjectTitle();
 
