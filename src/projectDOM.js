@@ -1,6 +1,6 @@
-import { getProject, addProject, deleteProject, inbox, setCurrentProject } from './projectManager.js';
+import { getProject, addProject, deleteProject, inbox, setCurrentProject, getCurrentProject } from './projectManager.js';
 import { deleteProjectStorage, storeProject } from "./storage.js";
-import { renderProjectTodos, hidePopover as hidePopoverTodo, toggleAllDetails } from './todoDOM.js';
+import { renderProjectTodos, hidePopover as hidePopoverTodo, toggleAllDetails, todosProject } from './todoDOM.js';
 
 
 // Create a function to render DOM elements for default project's title block
@@ -181,7 +181,12 @@ function submitLogic(e, form) {
     if (form.dataset.mode === "rename") {
         // Determine what project that being renamed
         const project = getProject(form.dataset.oldTitle);
-        if (project) renameProjectFromModal(project);
+        if (project) {
+            renameProjectFromModal(project);
+            if (getCurrentProject().title === project.title) {
+                todosProject();
+            }
+        } 
         return;
     }
 }
@@ -277,6 +282,7 @@ function setupPopover(project) {
     yesButton.addEventListener('click', () => {
         handleDeleteProject(project);
         removePopover();
+        todosProject();
     })
 
     noButton.addEventListener('click', () => {
@@ -300,6 +306,7 @@ function setupProjectButton(projectBtn, project) {
         removePopover();
         hidePopoverTodo();
         renderProjectTodos(project);
+        todosProject();
     })
 }
 
