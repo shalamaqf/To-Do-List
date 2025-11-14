@@ -1,4 +1,5 @@
 import Project from './project.js';
+import { projectList } from './projectManager.js';
 import Todo from './todo.js';
 
 // Create a function to serialize the project
@@ -28,7 +29,7 @@ function serializeProject(project) {
 }
 
 // Create a function to deserialize a project
-export function deserializeProject(project) {
+function deserializeProject(project) {
     // Create an object project
     const desProject = new Project(project.title);
     
@@ -69,16 +70,36 @@ export function deleteProjectStorage(project) {
 }
 
 // Create a function to delete a project's todo in local storage
-export function deleteTodoStorage(project, projectStr) {
+function deleteTodoStorage(project, projectStr) {
     storeProject(project, projectStr);
 }
 
 // Create a function to view a project from the local storage
-export function viewProjectStorage(project) {
+function viewProjectStorage(project) {
     return localStorage.getItem(project.title);
 }
 
 // Create a function to parse a project from local storage
-export function parseProject(projectStr) {
+function parseProject(projectStr) {
     return JSON.parse(projectStr);
+}
+
+// Create a function to load the raw data and make them the actual data
+function loadData() {
+    // Create an array to store the raw data
+    let rawDataArray = [];
+
+    // Loop the raw data
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const projectStr = localStorage.getItem(key);
+        rawDataArray.push(projectStr);
+    }
+
+    // Parse and deserialize the raw data
+    for (let i = 0; i < rawDataArray.length; i++) {
+        const object = parseProject(rawDataArray[i]);
+        const projectObject = deserializeProject(object);
+        projectList.push(projectObject);
+    }
 }
