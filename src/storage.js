@@ -108,3 +108,8 @@ function loadData() {
 export function storeCurrentProject(projectTitle) {
     localStorage.setItem("CURRENT_PROJECT", projectTitle);
 }
+
+// Create a function to get current project title from local storage
+export function getCurrentProjectTitle() {
+    return localStorage.getItem("CURRENT_PROJECT");
+}
