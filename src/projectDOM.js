@@ -287,6 +287,7 @@ function setupPopover(project) {
         handleDeleteProject(project);
         removePopover();
         todosProject();
+        renderProjectTodos(getCurrentProject());
     })
 
     noButton.addEventListener('click', () => {
