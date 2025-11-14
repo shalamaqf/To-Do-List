@@ -103,3 +103,8 @@ function loadData() {
         projectList.push(projectObject);
     }
 }
+
+// Create a function to store current project title in local storage
+function storeCurrentProject(projectTitle) {
+    localStorage.setItem("CURRENT_PROJECT", projectTitle);
+}
