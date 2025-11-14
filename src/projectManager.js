@@ -1,6 +1,6 @@
 // Import class project
 import Project from './project.js';
-import { storeCurrentProject, storeProject } from './storage.js';
+import { getCurrentProjectTitle, storeCurrentProject, storeProject } from './storage.js';
 
 // Create an array to store projects
 export let projectList = [];
@@ -63,5 +63,22 @@ export function setCurrentProject(project) {
 
 // Create a getter for current project
 export function getCurrentProject() {
+    return currentProject;
+}
+
+// Create a function to retrieve the current project
+function retrieveCurrentProject() {
+    // Get the current project title
+    const currentProjectTitle = getCurrentProjectTitle();
+
+    // Get the current project object
+    for (let i = 0; i < projectList.length; i++) {
+        if (currentProjectTitle === projectList[i].title) {
+            currentProject = projectList[i];
+            return currentProject
+        }
+    }
+
+    currentProject = getProject("Inbox");
     return currentProject;
 }
