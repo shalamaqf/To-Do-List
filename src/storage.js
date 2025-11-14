@@ -92,7 +92,7 @@ export function loadData() {
     // Loop the raw data
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
-        if (key !== "CURRENT_PROJECT") {
+        if (key !== "CURRENT_PROJECT" && key !== "Inbox") {
             const projectStr = localStorage.getItem(key);
             rawDataArray.push(projectStr);
         }
@@ -104,6 +104,8 @@ export function loadData() {
         const projectObject = deserializeProject(object);
         projectList.push(projectObject);
     }
+
+    console.log(projectList);
 }
 
 // Create a function to store current project title in local storage

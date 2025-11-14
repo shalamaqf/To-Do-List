@@ -5,6 +5,10 @@ import { getCurrentProjectTitle, storeCurrentProject, storeProject } from './sto
 // Create an array to store projects
 export let projectList = [];
 
+// Create a variable to store the current project
+let currentProject = getProject("Inbox");
+
+
 // Create variable to store the inbox project
 export let inbox = createDefaultProject();
 
@@ -15,9 +19,12 @@ function createProject(title) {
 
 // Create a default/global project
 export function createDefaultProject() {
-    const inbox = createProject('Inbox');
-    projectList.push(inbox);
-    storeProject(inbox);
+    let inbox = getProject("Inbox");
+    if (!inbox) {
+        inbox = createProject("Inbox");
+        projectList.push(inbox);
+        storeProject(inbox);
+    }
     return inbox;
 }
 
@@ -51,9 +58,6 @@ export function getProject(title) {
 export function viewProjectList() {
     return projectList.slice();
 }
-
-// Create a variable to store the current project
-let currentProject = getProject("Inbox");
 
 // Create a setter for current project
 export function setCurrentProject(project) {
