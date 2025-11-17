@@ -5,9 +5,6 @@ import { storeProject, storeCurrentProject } from './storage.js';
 // Create an array to store projects
 export let projectList = [];
 
-// Create variable to store the inbox project
-export let inbox = createDefaultProject();
-
 // Create a function to create a project object
 function createProject(title) {
     return new Project(title);
