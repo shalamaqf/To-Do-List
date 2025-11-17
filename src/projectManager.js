@@ -13,7 +13,6 @@ function createProject(title) {
 // Create a default/global project
 export function createDefaultProject() {
     const inbox = createProject('Inbox');
-    projectList.push(inbox);
     storeProject(inbox);
     return inbox;
 }
