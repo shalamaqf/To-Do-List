@@ -603,6 +603,14 @@ function handleMoveTodo(todo, newProject, oldProject) {
 
 // INIT FUNCTION TODO DOM //
 export function initTodoDOM() {
+    const currentProject = getCurrentProject();
+
+    if (!currentProject) {
+        console.log("No current project");
+        return;
+    }; // safeguard: exit if no project
+
+    renderProjectTodos(currentProject);
     todosProject();
     setupAddTodoButton();
     setupFormTodo();
