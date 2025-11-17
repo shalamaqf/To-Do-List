@@ -1,4 +1,4 @@
-import { getProject, addProject, deleteProject, inbox, setCurrentProject, getCurrentProject, viewProjectList } from './projectManager.js';
+import { getProject, addProject, deleteProject, inbox, setCurrentProject, getCurrentProject, viewProjectList, projectList } from './projectManager.js';
 import { deleteProjectStorage, storeCurrentProject, storeProject } from "./storage.js";
 import { renderProjectTodos, hidePopover as hidePopoverTodo, toggleAllDetails, todosProject } from './todoDOM.js';
 
@@ -55,6 +55,22 @@ function renderProjectTitle(project) {
     setupDeleteProject(deleteProjectBtn, project, projectTitleDiv);
 
     return projectTitleDiv;
+}
+
+// Create a function to render the project list
+export function renderProjectList() {
+    const projectListContainer = document.querySelector("#projectList-container");
+    projectListContainer.innerHTML = "";
+
+    const currentProject = getCurrentProject();
+
+    projectList.forEach(project => {
+        if (project.title === "Inbox") {
+            renderDefaultProjectTitle(project, project === currentProject); 
+        } else {
+            renderProjectTitle(project, project === currentProject); 
+        }
+    });
 }
 
 // Create a function to showed up the modal
