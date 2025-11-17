@@ -11,10 +11,18 @@ function init() {
     // 1. Load raw data from localStorage and deserialize
     dataToObject();
 
-    // 2. Check if Inbox exists in projectList, create if not
-    const inboxExists = projectList.some(p => p.title === "Inbox");
-    if (!inboxExists) {
-        defaultProject = createDefaultProject(); // storeInbox inside this
+   // Step 2: Ensure Inbox exists and is first
+    let inbox = projectList.find(p => p.title === "Inbox");
+    if (!inbox) {
+        inbox = createDefaultProject();
+        projectList.unshift(inbox);
+    } else {
+        // Move Inbox to the front if it's not already
+        const inboxIndex = projectList.indexOf(inbox);
+        if (inboxIndex > 0) {
+            projectList.splice(inboxIndex, 1);
+            projectList.unshift(inbox);
+        }
     }
 
     // 3. Find and set the current project
