@@ -3,7 +3,7 @@ import Project from './project.js';
 import { storeProject, storeCurrentProject } from './storage.js';
 
 // Create an array to store projects
-let projectList = [];
+export let projectList = [];
 
 // Create variable to store the inbox project
 export let inbox = createDefaultProject();

@@ -1,5 +1,6 @@
 import Project from './project.js';
 import Todo from './todo.js';
+import { projectList } from './projectManager.js';
 
 // Create a function to serialize the project
 function serializeProject(project) {
@@ -89,7 +90,7 @@ export function storeCurrentProject(project) {
 }
 
 // Create a function to get raw project data
-function getRawData() {
+export function getRawData() {
     // Create an array to store the raw data
     let rawProjectData = [];
 
@@ -110,4 +111,21 @@ function getRawData() {
         }
     }
     return rawProjectData;
+}
+
+// Create a function to parse and deserialized the project data to project object
+export function dataToObject() {
+    // Create an array to store the raw data
+    const rawData = getRawData();
+
+    // Store the length of the raw data
+    const length = rawData.length;
+
+    // Loop the array, then parse and deserialized it
+    for (let i = 0; i < length; i++) {
+        const parsedData = parseProject(rawData[i].todos);
+        const projectObject = deserializeProject(parsedData);
+        projectList.push(projectObject);
+    }
+    
 }
