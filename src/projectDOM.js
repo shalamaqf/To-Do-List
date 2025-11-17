@@ -333,17 +333,11 @@ function setupProjectButton(projectBtn, project) {
 
 // Create a function to initiallize the project DOM
 export function initProjectDOM(defaultProject) {
-    const savedProjectTitle = localStorage.getItem("CURRENT_PROJECT");
-    const projectToRender = projectList.find(p => p.title === savedProjectTitle) || defaultProject;
+    // Ensure current project is set in local storage
+    const currentProject = getCurrentProject() || defaultProject;
+    setCurrentProject(currentProject);
 
-    storeCurrentProject(projectToRender);
-
-    if (projectToRender.title === "Inbox") {
-        renderDefaultProjectTitle(projectToRender); // For inbox
-    } else {
-        renderProjectTitle(projectToRender);        // For other projects
-    }
-
+    renderProjectList();
     setupAddProject();
     setupFormProject();
 }
