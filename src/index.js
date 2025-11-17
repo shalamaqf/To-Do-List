@@ -5,25 +5,30 @@ import { initTodoDOM } from "./todoDOM";
 
 // Create a function as init function for the program
 function init() {
-    // Create a variable to store the default project
     let defaultProject;
 
-    // Check project list's length
-    if (projectList.length === 0) {
-        defaultProject = createDefaultProject();
-    }
-
-    // Load raw data, parse and deserialzied it
+    // 1. Load raw data from localStorage and deserialize
     dataToObject();
 
-    // If defaultProject wasn't created above (projectList not empty), fallback
-    if (!defaultProject) {
-        defaultProject = projectList[0]; // just pick the first project
+    // 2. Check if Inbox exists in projectList, create if not
+    const inboxExists = projectList.some(p => p.title === "Inbox");
+    if (!inboxExists) {
+        defaultProject = createDefaultProject(); // storeInbox inside this
     }
 
-    // Render the project dom section
+    // 3. Find and set the current project
+    findCurrentProject();
+
+    // 4. Fallback for default project if needed
+    if (!defaultProject) {
+        defaultProject = projectList[0]; // pick the first project in the list
+    }
+
+    // 6. Render the current project DOM (header/title, form, add button)
     initProjectDOM(defaultProject);
 
-    // Render the todo's section
+    // 7. Render the current project's todos
     initTodoDOM();
 }
+
+init();
