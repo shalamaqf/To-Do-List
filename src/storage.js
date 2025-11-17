@@ -28,7 +28,7 @@ function serializeProject(project) {
 }
 
 // Create a function to deserialize a project
-export function deserializeProject(project) {
+function deserializeProject(project) {
     // Create an object project
     const desProject = new Project(project.title);
     
@@ -69,16 +69,16 @@ export function deleteProjectStorage(project) {
 }
 
 // Create a function to delete a project's todo in local storage
-export function deleteTodoStorage(project, projectStr) {
+function deleteTodoStorage(project, projectStr) {
     storeProject(project, projectStr);
 }
 
 // Create a function to view a project from the local storage
-export function viewProjectStorage(project) {
+function viewProjectStorage(project) {
     return localStorage.getItem(project.title);
 }
 
 // Create a function to parse a project from local storage
-export function parseProject(projectStr) {
+function parseProject(projectStr) {
     return JSON.parse(projectStr);
 }
