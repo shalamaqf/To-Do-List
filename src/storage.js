@@ -82,3 +82,27 @@ function viewProjectStorage(project) {
 function parseProject(projectStr) {
     return JSON.parse(projectStr);
 }
+
+// Create a function to load raw project data
+function loadRawData() {
+    // Create an array to store the raw data
+    let rawProjectData = [];
+
+    // Store the storage length
+    const storageLength = localStorage.length;
+
+    // Loop the local storage to get the key
+    for (let i = 0; i < storageLength; i++) {
+        if (localStorage.key(i) !== "CURRENT_PROJECT") {
+           let object = {};
+           const key = localStorage.key(i);
+           const value = localStorage.getItem(key);
+           object = {
+                projectName: key,
+                todos: value
+           }
+           rawProjectData.push(object);
+        }
+    }
+    return rawProjectData;
+}
