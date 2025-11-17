@@ -83,8 +83,8 @@ function parseProject(projectStr) {
     return JSON.parse(projectStr);
 }
 
-// Create a function to load raw project data
-function loadRawData() {
+// Create a function to get raw project data
+function getRawData() {
     // Create an array to store the raw data
     let rawProjectData = [];
 
