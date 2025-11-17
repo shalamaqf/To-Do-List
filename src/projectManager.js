@@ -1,6 +1,6 @@
 // Import class project
 import Project from './project.js';
-import { storeProject } from './storage.js';
+import { storeProject, storeCurrentProject } from './storage.js';
 
 // Create an array to store projects
 let projectList = [];
@@ -58,6 +58,7 @@ let currentProject = getProject("Inbox");
 // Create a setter for current project
 export function setCurrentProject(project) {
     currentProject = project;
+    storeCurrentProject(project);
 }
 
 // Create a getter for current project

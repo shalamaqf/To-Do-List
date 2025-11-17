@@ -83,6 +83,11 @@ function parseProject(projectStr) {
     return JSON.parse(projectStr);
 }
 
+// Create a function to store the key of the current project
+export function storeCurrentProject(project) {
+    localStorage.setItem("CURRENT_PROJECT", project.title);
+}
+
 // Create a function to get raw project data
 function getRawData() {
     // Create an array to store the raw data

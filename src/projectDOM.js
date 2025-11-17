@@ -1,5 +1,5 @@
 import { getProject, addProject, deleteProject, inbox, setCurrentProject, getCurrentProject, viewProjectList } from './projectManager.js';
-import { deleteProjectStorage, storeProject } from "./storage.js";
+import { deleteProjectStorage, storeCurrentProject, storeProject } from "./storage.js";
 import { renderProjectTodos, hidePopover as hidePopoverTodo, toggleAllDetails, todosProject } from './todoDOM.js';
 
 
@@ -317,6 +317,7 @@ function setupProjectButton(projectBtn, project) {
 
 // Create a function to initiallize the project DOM
 export function initProjectDOM(inbox) {
+    storeCurrentProject(inbox);
     renderDefaultProjectTitle(inbox);
     setupAddProject();
     setupFormProject();
