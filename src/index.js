@@ -1,7 +1,8 @@
-import { initProjectDOM } from "./projectDOM";
-import { createDefaultProject, projectList } from "./projectManager";
-import { dataToObject } from "./storage";
-import { initTodoDOM } from "./todoDOM";
+import { initProjectDOM } from "./projectDOM.js";
+import { createDefaultProject, findCurrentProject, projectList } from "./projectManager.js";
+import { dataToObject } from "./storage.js";
+import { initTodoDOM } from "./todoDOM.js";
+import './style.css';
 
 // Create a function as init function for the program
 function init() {
