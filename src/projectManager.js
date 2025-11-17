@@ -64,3 +64,17 @@ export function setCurrentProject(project) {
 export function getCurrentProject() {
     return currentProject;
 }
+
+// Create a function to find the current project in the projectList array
+export function findCurrentProject() {
+    // Store the current project title
+    const current = getCurrentProjectData();
+
+    // Find the match
+    const project = projectList.find(p => p.title === current);
+
+    // Set the current project
+    if (project) {
+        setCurrentProject(project);
+    }
+}
