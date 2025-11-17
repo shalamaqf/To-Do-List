@@ -89,6 +89,11 @@ export function storeCurrentProject(project) {
     localStorage.setItem("CURRENT_PROJECT", project.title);
 }
 
+// Create a function to get the current project data
+export function getCurrentProjectData() {
+    return localStorage.getItem("CURRENT_PROJECT") || null;
+}
+
 // Create a function to get raw project data
 export function getRawData() {
     // Create an array to store the raw data
