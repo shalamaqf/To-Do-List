@@ -184,6 +184,25 @@ body {
     border-right: 2px solid rgb(235, 190, 45);
 }
 
+.header {
+    color: rgb(235, 190, 45);
+}
+
+#add-project-button,
+#add-todo-button {
+    font-size: 1.7rem;
+
+    color: rgb(235, 190, 45);
+    background-color: rgb(255, 255, 255);
+    border: none;
+
+    cursor: pointer;
+}
+
+#add-todo-button {
+    font-weight: bold;
+}
+
 footer {
     background-color: rgb(235, 190, 45);
     color: rgb(255, 255, 255);
