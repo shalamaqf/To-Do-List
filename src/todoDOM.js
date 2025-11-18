@@ -601,6 +601,20 @@ function handleMoveTodo(todo, newProject, oldProject) {
 }
 
 
+// FORMAT DUE DATE
+// Create a function to format the duedate
+function formatDueDate(dueDate) {
+    const d = new Date(dueDate);
+    return d.toLocaleString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour:"2-digit",
+        minute: "2-digit"
+    });
+}
+
+
 // INIT FUNCTION TODO DOM //
 export function initTodoDOM() {
     const currentProject = getCurrentProject();
