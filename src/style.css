@@ -60,6 +60,36 @@ footer {
     background-color: darkturquoise;
 }
 
+/* Layout Body */
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Layout Project Modal */
 .project.modal-container {
     position: fixed;
