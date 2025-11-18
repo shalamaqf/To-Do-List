@@ -29,7 +29,7 @@ export function renderTodo(todo) {
     todo.showingDetails = false;
 
     todoTitle.textContent = todo.title;
-    todoDueDate.textContent = todo.dueDate;
+    todoDueDate.textContent = formatDueDate(todo.dueDate);
     todoPriority.textContent = todo.priority;
     todoCompleted.textContent = todo.isComplete ? '✔' : '✖';
     seeDetailsBtn.textContent = 'See Details';
