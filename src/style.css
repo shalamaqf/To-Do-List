@@ -109,6 +109,18 @@ footer {
     overflow-y: auto;
 }
 
+.projectTitle-container {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0.7rem;
+}
+
+.projectBtn-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
 
 
 
