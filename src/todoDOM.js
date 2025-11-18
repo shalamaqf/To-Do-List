@@ -13,6 +13,7 @@ export function renderTodo(todo) {
     const todoDueDate = document.createElement('p');
     const todoPriority = document.createElement('p');
     const todoCompleted = document.createElement('p');
+    const todoBtnContainer = document.createElement('div');
     const seeDetailsBtn = document.createElement('button');
     const editBtn = document.createElement('button');
     const deleteBtn = document.createElement('button');
@@ -22,6 +23,7 @@ export function renderTodo(todo) {
     todoDueDate.className = 'todo todo-dueDate';
     todoPriority.className = 'todo todo-priority';
     todoCompleted.className = 'todo todo-completed';
+    todoBtnContainer.className = 'todoBtn-container';
     seeDetailsBtn.className = 'see todo-btn';
     editBtn.className = 'edit todo-btn';
     deleteBtn.className = 'delete todo-btn';
@@ -40,9 +42,10 @@ export function renderTodo(todo) {
     todoContainer.appendChild(todoDueDate);
     todoContainer.appendChild(todoPriority);
     todoContainer.appendChild(todoCompleted);
-    todoContainer.appendChild(seeDetailsBtn);
-    todoContainer.appendChild(editBtn);
-    todoContainer.appendChild(deleteBtn);
+    todoBtnContainer.appendChild(seeDetailsBtn);
+    todoBtnContainer.appendChild(editBtn);
+    todoBtnContainer.appendChild(deleteBtn);
+    todoContainer.appendChild(todoBtnContainer);
     todoListContainer.appendChild(todoContainer);
 
     // Set the todo ID on dataset of todoContainer
