@@ -94,11 +94,19 @@ footer {
     align-items: center;
 }
 
+#project-container {
+    height: 100%;
+}
+
 .projectList.header {
     display: flex;
     justify-content: space-between;
 
     padding: 1rem;
+}
+
+#projectList-container {
+    overflow-y: auto;
 }
 
 
