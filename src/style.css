@@ -114,25 +114,6 @@ footer {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Layout Project Modal */
 .project.modal-container {
     position: fixed;
@@ -176,4 +157,10 @@ footer {
     opacity: 1;
     pointer-events: auto;
     transition: opacity 0.3s ease;
+}
+
+
+/* Style */
+body {
+    background-color: rgb(240, 240, 240);
 }
