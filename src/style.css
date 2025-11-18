@@ -133,6 +133,10 @@ footer {
     align-self: center;
 }
 
+.see.todo-btn,
+.edit.todo-btn {
+    margin-right: 0.5rem;
+}
 
 
 
