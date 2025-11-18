@@ -173,12 +173,15 @@ body {
 }
 
 #content-header {
-    background-color: rgb(255, 255, 255);
-    border-bottom: 2px solid rgb(235, 190, 45);
+    background-color: rgb(235, 190, 45);
 }
 
 #content-header h1 {
-    color: rgb(235, 190, 45);
+    color: rgb(255, 255, 255);
+}
+
+#project-container {
+    border-right: 2px solid rgb(235, 190, 45);
 }
 
 footer {
