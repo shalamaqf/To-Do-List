@@ -8,7 +8,7 @@ export default class Todo {
         this.note = "";
         this.isComplete = false;
         this.project = undefined;
-        this.id = Date.now();
+        this.id = generateId();
     }
 
     // Add a method to set the todo's new title
@@ -40,4 +40,9 @@ export default class Todo {
     set setProject(project) {
         this.project = project;
     }
+}
+
+// Createa a function to generate random ID number
+function generateId() {
+    return Math.floor(100000 + Math.random() * 900000);  
 }
