@@ -9,6 +9,7 @@ import { deleteProjectStorage, storeProject } from './storage.js';
 export function renderTodo(todo) {
     const todoListContainer = document.getElementById('todoList-container');
     const todoContainer = document.createElement('div');
+    const todoInfoContainer = document.createElement('div');
     const todoTitle = document.createElement('p');
     const todoDueDate = document.createElement('p');
     const todoPriority = document.createElement('p');
@@ -19,6 +20,7 @@ export function renderTodo(todo) {
     const deleteBtn = document.createElement('button');
 
     todoContainer.className = 'todo-container';
+    todoInfoContainer.className = 'todoInfo-container';
     todoTitle.className = 'todo todo-title';
     todoDueDate.className = 'todo todo-dueDate';
     todoPriority.className = 'todo todo-priority';
@@ -38,13 +40,14 @@ export function renderTodo(todo) {
     editBtn.textContent = 'Edit';
     deleteBtn.textContent = '-';
 
-    todoContainer.appendChild(todoTitle);
-    todoContainer.appendChild(todoDueDate);
-    todoContainer.appendChild(todoPriority);
-    todoContainer.appendChild(todoCompleted);
+    todoInfoContainer.appendChild(todoTitle);
+    todoInfoContainer.appendChild(todoDueDate);
+    todoInfoContainer.appendChild(todoPriority);
+    todoInfoContainer.appendChild(todoCompleted);
     todoBtnContainer.appendChild(seeDetailsBtn);
     todoBtnContainer.appendChild(editBtn);
     todoBtnContainer.appendChild(deleteBtn);
+    todoContainer.appendChild(todoInfoContainer);
     todoContainer.appendChild(todoBtnContainer);
     todoListContainer.appendChild(todoContainer);
 
