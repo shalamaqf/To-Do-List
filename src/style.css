@@ -98,7 +98,7 @@ footer {
     height: 100%;
 }
 
-.projectList.header {
+.header {
     display: flex;
     justify-content: space-between;
 
