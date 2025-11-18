@@ -77,6 +77,15 @@ body {
     height: 100%;
 }
 
+#content-header {
+    height: 10vh;
+    
+    display: flex;
+    align-items: center;
+
+    padding-left: 3rem;
+}
+
 
 
 
