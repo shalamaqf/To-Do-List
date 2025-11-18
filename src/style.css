@@ -171,6 +171,7 @@ body {
 
 #content-header {
     background-color: rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(235, 190, 45);
 }
 
 #content-header h1 {
