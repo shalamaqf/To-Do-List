@@ -122,7 +122,19 @@ footer {
     gap: 0.5rem;
 }
 
+.todo-container {
+    display: flex;
+    justify-content: space-between;
 
+    padding: 0.5rem;
+}
+
+.todoBtn-container {
+    align-self: flex-end;
+
+    display: flex;
+    gap: 0.5rem;
+}
 
 
 
