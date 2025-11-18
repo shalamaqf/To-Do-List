@@ -94,7 +94,8 @@ footer {
     align-items: center;
 }
 
-#project-container {
+#project-container,
+#todo-container {
     height: 100%;
 }
 
