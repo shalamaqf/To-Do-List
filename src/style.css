@@ -168,3 +168,11 @@ body {
 #content-container {
     background-color: rgb(255, 255, 255);
 }
+
+#content-header {
+    background-color: rgb(66, 133, 244);
+}
+
+#content-header h1 {
+    color: rgb(255, 255, 255);
+}
