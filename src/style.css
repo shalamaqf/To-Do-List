@@ -35,31 +35,6 @@ footer {
     grid-row: 3;
 }
 
-/* Temporary style */
-#content-header {
-    background-color: aqua;
-}
-
-#project-container {
-    background-color: aquamarine;
-}
-
-#projectList-container {
-    background-color: beige;
-}
-
-#todo-container {
-    background-color: cornflowerblue;
-}
-
-#todoList-container {
-    background-color: darkseagreen;
-}
-
-footer {
-    background-color: darkturquoise;
-}
-
 
 /* Layout Body */
 body {
