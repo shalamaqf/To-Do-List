@@ -176,3 +176,8 @@ body {
 #content-header h1 {
     color: rgb(255, 255, 255);
 }
+
+footer {
+    background-color: rgb(66, 133, 244);
+    color: rgb(255, 255, 255);
+}
