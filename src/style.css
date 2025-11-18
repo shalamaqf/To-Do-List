@@ -190,17 +190,22 @@ body {
 
 #add-project-button,
 #add-todo-button {
-    font-size: 1.7rem;
+    aspect-ratio: 1 / 1;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1;
 
-    color: rgb(235, 190, 45);
-    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    background-color: rgb(235, 190, 45);
     border: none;
+    border-radius: 3px;
 
     cursor: pointer;
-}
-
-#add-todo-button {
-    font-weight: bold;
 }
 
 footer {
