@@ -57,7 +57,7 @@ export function renderTodo(todo) {
     // Buttons setup
     setupDetailsBtn(seeDetailsBtn, todo, todoContainer, todoInfoContainer);
     setupEditButton(editBtn, todo, todoContainer);
-    setupDeleteBtn(deleteBtn, todo, todoContainer);
+    setupDeleteBtn(deleteBtn, todo, todoBtnContainer);
 
     return todoContainer;
 
@@ -518,10 +518,10 @@ function renderPopoverDOM() {
 }
 
 // Create a function to append/show popover
-function appendPopover(todoContainer) {
+function appendPopover(todoBtnContainer) {
     hidePopover();
     const popover = renderPopoverDOM();
-    todoContainer.appendChild(popover);
+    todoBtnContainer.appendChild(popover);
 }
 
 // Create a function to hide the popover
@@ -562,10 +562,10 @@ function handleDeleteTodo(todo) {
 }
 
 // Create a function setup the delete button
-function setupDeleteBtn(deleteBtn, todo, todoContainer) {
+function setupDeleteBtn(deleteBtn, todo, todoBtnContainer) {
     deleteBtn.addEventListener('click', () => {
         toggleAllDetails();
-        appendPopover(todoContainer);
+        appendPopover(todoBtnContainer);
         setupPopover(todo);
     })
 }
