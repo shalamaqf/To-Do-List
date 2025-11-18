@@ -55,7 +55,7 @@ export function renderTodo(todo) {
     todoContainer.dataset.todoId = todo.id;
 
     // Buttons setup
-    setupDetailsBtn(seeDetailsBtn, todo, todoContainer);
+    setupDetailsBtn(seeDetailsBtn, todo, todoContainer, todoInfoContainer);
     setupEditButton(editBtn, todo, todoContainer);
     setupDeleteBtn(deleteBtn, todo, todoContainer);
 
@@ -64,7 +64,7 @@ export function renderTodo(todo) {
 }
 
 // Create a function to render the todo's details
-function renderTodoDetails(todo, todoContainer) {
+function renderTodoDetails(todo, todoInfoContainer) {
     const todoDesc = document.createElement('p');
     const todoNote = document.createElement('p');
     const todoProject = document.createElement('p');
@@ -77,11 +77,11 @@ function renderTodoDetails(todo, todoContainer) {
     todoNote.textContent = 'Note: ' + todo.note;
     todoProject.textContent = 'Project: ' + todo.project.title;
 
-    todoContainer.appendChild(todoDesc);
-    todoContainer.appendChild(todoNote);
-    todoContainer.appendChild(todoProject);
+    todoInfoContainer.appendChild(todoDesc);
+    todoInfoContainer.appendChild(todoNote);
+    todoInfoContainer.appendChild(todoProject);
 
-    return todoContainer;
+    return todoInfoContainer;
     
 }
 
@@ -297,20 +297,20 @@ function validateInput(form) {
 
 // SEE DETAILS BUTTON LOGIC //
 // Attach an event listener to see the todo's details
-function setupDetailsBtn(seeDetailsBtn, todo, todoContainer) {
+function setupDetailsBtn(seeDetailsBtn, todo, todoContainer, todoInfoContainer) {
     seeDetailsBtn.addEventListener('click', () => {
         hidePopover();
-        toggleTodoDetails(todo, seeDetailsBtn, todoContainer);
+        toggleTodoDetails(todo, seeDetailsBtn, todoContainer, todoInfoContainer);
     })
 }
 
 // Create a function to toggle the todo's details
-function toggleTodoDetails(todo, seeDetailsBtn, todoContainer) {
+function toggleTodoDetails(todo, seeDetailsBtn, todoContainer, todoInfoContainer) {
     if (!todo.showingDetails) {
         // Prevent duplicate details showed
         toggleAllDetails();
         
-        renderTodoDetails(todo, todoContainer);
+        renderTodoDetails(todo, todoInfoContainer);
         seeDetailsBtn.textContent = 'Hide Details';
         todo.showingDetails = true;
     }
@@ -325,7 +325,7 @@ function toggleTodoDetails(todo, seeDetailsBtn, todoContainer) {
 export function toggleAllDetails() {
     // Select all see details button
     const seeDetailsButtons = document.querySelectorAll('.see.todo-btn');
-    const todoContainers = document.querySelectorAll('.todo-container');
+    const todoInfoContainers = document.querySelectorAll('.todoInfo-container');
 
     // Get all project and loop each todo
     const projects = viewProjectList();
@@ -337,7 +337,7 @@ export function toggleAllDetails() {
     })
 
     // Loop each container
-    todoContainers.forEach(container => {
+    todoInfoContainers.forEach(container => {
         removeDetails(container);
     })
 
@@ -348,10 +348,10 @@ export function toggleAllDetails() {
 }
 
 // Create a function to remove the todo's details
-function removeDetails(todoContainer) {
-    const desc = todoContainer.querySelector('.todo-desc');
-    const note = todoContainer.querySelector('.todo-note');
-    const project = todoContainer.querySelector('.todo-project');
+function removeDetails(todoInfoContainer) {
+    const desc = todoInfoContainer.querySelector('.todo-desc');
+    const note = todoInfoContainer.querySelector('.todo-note');
+    const project = todoInfoContainer.querySelector('.todo-project');
     if (desc) desc.remove();
     if (note) note.remove();
     if (project) project.remove();
