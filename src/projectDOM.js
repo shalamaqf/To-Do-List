@@ -256,7 +256,7 @@ function handleDeleteProject(project) {
 function setupDeleteProject(deleteBtn, project, projectBtnContainer) {
     deleteBtn.addEventListener('click', () => {
         appendPopover(projectBtnContainer);
-        setupPopover(project);
+        setupPopover(project, projectBtnContainer);
         hideButtons(projectBtnContainer);
     })
 }
@@ -268,6 +268,15 @@ function hideButtons(projectBtnContainer) {
 
     renameBtn.classList.add('hide');
     deleteBtn.classList.add('hide');
+}
+
+// Create a function to show the project buttons
+function showButtons(projectBtnContainer) {
+    const renameBtn = projectBtnContainer.querySelector('.renameProject-button');
+    const deleteBtn = projectBtnContainer.querySelector('.deleteProject-button');
+
+    renameBtn.classList.remove('hide');
+    deleteBtn.classList.remove('hide');
 }
 
 // Create a function to render popover DOM
@@ -305,19 +314,21 @@ function appendPopover(projectBtnContainer) {
 }
 
 // Create a function to setup the popover and add event listener to the buttons 
-function setupPopover(project) {
+function setupPopover(project, projectBtnContainer) {
     const yesButton = document.querySelector('.confirm-button.yes');
     const noButton = document.querySelector('.confirm-button.no');
 
     yesButton.addEventListener('click', () => {
         handleDeleteProject(project);
         removePopover();
+        showButtons(projectBtnContainer);
         todosProject();
         renderProjectTodos(getCurrentProject());
     })
 
     noButton.addEventListener('click', () => {
         removePopover();
+        showButtons(projectBtnContainer);
     })
 }
 
