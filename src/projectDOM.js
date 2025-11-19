@@ -130,6 +130,7 @@ function setupAddProject() {
         showButtons();
         removePopover();
         hidePopoverTodo();
+        toggleAllDetails();
         showModal();
     })
 }
@@ -183,6 +184,7 @@ function setupRenameProject(renameProjectBtn, project) {
         showButtons();
         removePopover();
         hidePopoverTodo();
+        toggleAllDetails();
         showModal();
     })
 }
@@ -263,6 +265,7 @@ function setupDeleteProject(deleteBtn, project, projectBtnContainer) {
         setupPopover(project, projectBtnContainer);
         hideButtons(projectBtnContainer);
         hidePopoverTodo();
+        toggleAllDetails();
     })
 }
 
