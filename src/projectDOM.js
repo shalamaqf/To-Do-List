@@ -129,6 +129,7 @@ function setupAddProject() {
         modalHeader.textContent = "Add Project";
         showButtons();
         removePopover();
+        hidePopoverTodo();
         showModal();
     })
 }
@@ -180,7 +181,8 @@ function setupRenameProject(renameProjectBtn, project) {
         submitRename.textContent = "Rename";
         modalHeader.textContent = "Rename Project";
         showButtons();
-        removePopover()
+        removePopover();
+        hidePopoverTodo();
         showModal();
     })
 }
@@ -260,6 +262,7 @@ function setupDeleteProject(deleteBtn, project, projectBtnContainer) {
         appendPopover(projectBtnContainer);
         setupPopover(project, projectBtnContainer);
         hideButtons(projectBtnContainer);
+        hidePopoverTodo();
     })
 }
 
@@ -315,6 +318,7 @@ function renderPopoverDOM() {
 // Create a function to append the popover DOM to the project title div
 function appendPopover(projectBtnContainer) {
     // Prevent duplicate popovers
+    showButtons();
     removePopover();
     const popover = renderPopoverDOM();
     projectBtnContainer.appendChild(popover);
@@ -353,6 +357,7 @@ function setupProjectButton(projectBtn, project) {
         setCurrentProject(project);
         toggleAllDetails();
         removePopover();
+        showButtons();
         hidePopoverTodo();
         renderProjectTodos(project);
         todosProject();
