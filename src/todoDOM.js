@@ -630,6 +630,19 @@ function formatDueDate(dueDate) {
 }
 
 
+// HIDE TODO BUTTONS
+// Create a function to hide todo buttons
+function hideTodoButtons(todoBtnContainer) {
+    const seeDetailsBtn = todoBtnContainer.querySelector('.see.todo-btn');
+    const editBtn = todoBtnContainer.querySelector('.edit.todo-btn');
+    const deleteBtn = todoBtnContainer.querySelector('.delete.todo-btn');
+
+    seeDetailsBtn.classList.add('hide');
+    editBtn.classList.add('hide');
+    deleteBtn.classList.add('hide');
+}
+
+
 // INIT FUNCTION TODO DOM //
 export function initTodoDOM() {
     const currentProject = getCurrentProject();

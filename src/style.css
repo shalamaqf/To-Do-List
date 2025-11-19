@@ -287,6 +287,12 @@ body {
     font-size: 1.7rem;
 }
 
+.see.todo-btn.hide,
+.edit.todo-btn.hide,
+.delete.todo-btn.hide {
+    visibility: none;
+}
+
 .todo-container {
     background-color: rgb(245, 245, 245);
     border-bottom: 3px solid rgb(208, 215, 222);
