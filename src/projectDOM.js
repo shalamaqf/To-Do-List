@@ -39,7 +39,7 @@ function renderProjectTitle(project) {
     renameProjectBtn.className = "renameProject-button";
 
     projectTitleButton.textContent = project.title;
-    deleteProjectBtn.textContent = "-";
+    deleteProjectBtn.textContent = "🗑";
     renameProjectBtn.textContent = "✎";
 
     projectTitleDiv.dataset.title = project.title;
