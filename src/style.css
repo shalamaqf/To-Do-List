@@ -191,6 +191,14 @@ body {
     color: rgb(255, 255, 255);
 }
 
+#app-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-left: -1.25rem;
+    margin-right: 0.5rem;
+    fill: rgb(255, 255, 255);
+}
+
 #project-container {
     border-right: 2px solid rgb(235, 190, 45);
 }
