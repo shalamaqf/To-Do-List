@@ -257,7 +257,17 @@ function setupDeleteProject(deleteBtn, project, projectBtnContainer) {
     deleteBtn.addEventListener('click', () => {
         appendPopover(projectBtnContainer);
         setupPopover(project);
+        hideButtons(projectBtnContainer);
     })
+}
+
+// Create a function to hide the project buttons 
+function hideButtons(projectBtnContainer) {
+    const renameBtn = projectBtnContainer.querySelector('.renameProject-button');
+    const deleteBtn = projectBtnContainer.querySelector('.deleteProject-button');
+
+    renameBtn.classList.add('hide');
+    deleteBtn.classList.add('hide');
 }
 
 // Create a function to render popover DOM

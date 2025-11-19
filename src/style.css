@@ -233,6 +233,11 @@ body {
     font-size: 1.2rem;
 }
 
+.renameProject-button.hide,
+.deleteProject-button.hide {
+    visibility: hidden;
+}
+
 footer {
     background-color: rgb(235, 190, 45);
     color: rgb(255, 255, 255);
