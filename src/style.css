@@ -116,6 +116,17 @@ footer {
     margin-right: 0.5rem;
 }
 
+#popover-container-project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#confirm-button-container .confirm-button.yes {
+    margin-right: 0.5rem;
+}
+
 
 /* Layout Project Modal */
 .project.modal-container {
@@ -236,6 +247,21 @@ body {
 .renameProject-button.hide,
 .deleteProject-button.hide {
     visibility: hidden;
+}
+
+#popover-container-project #confirm-message {
+    font-size: 0.7rem;
+}
+
+.confirm-button.yes,
+.confirm-button.no {
+    color: rgb(235, 190, 45);
+    background: none;
+    border: 1px solid rgb(235, 190, 45);
+    font-size: 0.7rem;
+    cursor: pointer;
+
+    padding: 0.07rem;
 }
 
 footer {
