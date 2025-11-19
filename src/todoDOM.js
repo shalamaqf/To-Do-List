@@ -343,7 +343,7 @@ export function toggleAllDetails() {
 
     // Loop each button
     seeDetailsButtons.forEach(button => {
-        button.textContent = 'See Details';
+        button.textContent = '\u25BC';
     })
 }
 
