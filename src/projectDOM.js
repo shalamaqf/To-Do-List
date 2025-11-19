@@ -52,7 +52,7 @@ function renderProjectTitle(project) {
 
     setupProjectButton(projectTitleButton, project);
     setupRenameProject(renameProjectBtn, project);
-    setupDeleteProject(deleteProjectBtn, project, projectTitleDiv);
+    setupDeleteProject(deleteProjectBtn, project, projectBtnContainer);
 
     return projectTitleDiv;
 }
@@ -253,9 +253,9 @@ function handleDeleteProject(project) {
 }
 
 // Create a function to setup the delete button in a project
-function setupDeleteProject(deleteBtn, project, projectTitleDiv) {
+function setupDeleteProject(deleteBtn, project, projectBtnContainer) {
     deleteBtn.addEventListener('click', () => {
-        appendPopover(projectTitleDiv);
+        appendPopover(projectBtnContainer);
         setupPopover(project);
     })
 }
@@ -287,11 +287,11 @@ function renderPopoverDOM() {
 }
 
 // Create a function to append the popover DOM to the project title div
-function appendPopover(projectTitleDiv) {
+function appendPopover(projectBtnContainer) {
     // Prevent duplicate popovers
     removePopover();
     const popover = renderPopoverDOM();
-    projectTitleDiv.appendChild(popover);
+    projectBtnContainer.appendChild(popover);
 }
 
 // Create a function to setup the popover and add event listener to the buttons 
