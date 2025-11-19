@@ -2,6 +2,7 @@
 import { createTodo, moveTodo, findTodoById } from './todoManager.js';
 import { deleteProject, getCurrentProject, getProject, viewProjectList } from './projectManager.js';
 import { deleteProjectStorage, storeProject } from './storage.js';
+import { removePopover, showButtons } from './projectDOM.js';
 
 
 // RENDER TODO //
@@ -213,8 +214,10 @@ function setupAddTodoButton() {
 
 
     addButton.addEventListener('click', () => {
-        // Toggle see details button
+        // Toggle button
         toggleAllDetails();
+        showButtons();
+        removePopover();
 
         // Clear and refresh form
         clearValues(form);
@@ -300,6 +303,8 @@ function validateInput(form) {
 function setupDetailsBtn(seeDetailsBtn, todo, todoContainer, todoInfoContainer) {
     seeDetailsBtn.addEventListener('click', () => {
         hidePopover();
+        showButtons()
+        removePopover();
         toggleTodoDetails(todo, seeDetailsBtn, todoContainer, todoInfoContainer);
     })
 }
@@ -368,8 +373,10 @@ function setupEditButton(editBtn, todo, todoContainer) {
 
     // Attach the event listener
     editBtn.addEventListener('click', () => {
-        // Toggle details button
+        // Toggle buttons
         toggleAllDetails();
+        showButtons();
+        removePopover();
 
         hidePopover();
         dropDownProjects(form);
@@ -565,6 +572,8 @@ function handleDeleteTodo(todo) {
 function setupDeleteBtn(deleteBtn, todo, todoBtnContainer) {
     deleteBtn.addEventListener('click', () => {
         toggleAllDetails();
+        showButtons();
+        removePopover();
         appendPopover(todoBtnContainer);
         setupPopover(todo);
     })

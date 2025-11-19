@@ -127,6 +127,7 @@ function setupAddProject() {
         form.dataset.mode = "add";
         submitAdd.textContent = "Add Project";
         modalHeader.textContent = "Add Project";
+        showButtons();
         removePopover();
         showModal();
     })
@@ -178,6 +179,7 @@ function setupRenameProject(renameProjectBtn, project) {
         form.dataset.oldTitle = project.title;
         submitRename.textContent = "Rename";
         modalHeader.textContent = "Rename Project";
+        showButtons();
         removePopover()
         showModal();
     })
@@ -271,12 +273,17 @@ function hideButtons(projectBtnContainer) {
 }
 
 // Create a function to show the project buttons
-function showButtons(projectBtnContainer) {
-    const renameBtn = projectBtnContainer.querySelector('.renameProject-button');
-    const deleteBtn = projectBtnContainer.querySelector('.deleteProject-button');
+export function showButtons() {
+    const renameButtons = document.querySelectorAll('.renameProject-button');
+    const deleteButtons = document.querySelectorAll('.deleteProject-button');
 
-    renameBtn.classList.remove('hide');
-    deleteBtn.classList.remove('hide');
+    renameButtons.forEach(button => {
+        button.classList.remove('hide');
+    })
+
+    deleteButtons.forEach(button => {
+        button.classList.remove('hide');
+    })
 }
 
 // Create a function to render popover DOM
@@ -321,19 +328,19 @@ function setupPopover(project, projectBtnContainer) {
     yesButton.addEventListener('click', () => {
         handleDeleteProject(project);
         removePopover();
-        showButtons(projectBtnContainer);
+        showButtons();
         todosProject();
         renderProjectTodos(getCurrentProject());
     })
 
     noButton.addEventListener('click', () => {
         removePopover();
-        showButtons(projectBtnContainer);
+        showButtons();
     })
 }
 
 // Create a function to remove popover from DOM
-function removePopover() {
+export function removePopover() {
     const popover = document.getElementById('popover-container-project');
     if (popover) popover.remove();
 }
