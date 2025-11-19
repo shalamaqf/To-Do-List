@@ -36,9 +36,9 @@ export function renderTodo(todo) {
     todoDueDate.textContent = formatDueDate(todo.dueDate);
     todoPriority.textContent = todo.priority;
     todoCompleted.textContent = todo.isComplete ? '✔' : '✖';
-    seeDetailsBtn.textContent = 'See Details';
-    editBtn.textContent = 'Edit';
-    deleteBtn.textContent = '-';
+    seeDetailsBtn.textContent = '\u25BC';
+    editBtn.textContent = '✎';
+    deleteBtn.textContent = '🗑';
 
     todoInfoContainer.appendChild(todoTitle);
     todoInfoContainer.appendChild(todoDueDate);
@@ -311,12 +311,12 @@ function toggleTodoDetails(todo, seeDetailsBtn, todoContainer, todoInfoContainer
         toggleAllDetails();
         
         renderTodoDetails(todo, todoInfoContainer);
-        seeDetailsBtn.textContent = 'Hide Details';
+        seeDetailsBtn.textContent = '\u25B2';
         todo.showingDetails = true;
     }
     else {
         removeDetails(todoContainer);
-        seeDetailsBtn.textContent = 'See Details';
+        seeDetailsBtn.textContent = '\u25BC';
         todo.showingDetails = false;
     }
 }
