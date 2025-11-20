@@ -108,6 +108,14 @@ footer {
     margin-bottom: 1rem;
 }
 
+.todoInfo-container {
+    padding: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
 .todoBtn-container {
     align-self: center;
     display: flex;
