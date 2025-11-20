@@ -1,6 +1,6 @@
 import { getProject, addProject, deleteProject, inbox, setCurrentProject, getCurrentProject, viewProjectList, projectList } from './projectManager.js';
 import { deleteProjectStorage, storeCurrentProject, storeProject } from "./storage.js";
-import { renderProjectTodos, hidePopover as hidePopoverTodo, toggleAllDetails, todosProject } from './todoDOM.js';
+import { renderProjectTodos, hidePopover as hidePopoverTodo, toggleAllDetails, todosProject, showTodoButtons } from './todoDOM.js';
 
 
 // Create a function to render DOM elements for default project's title block
@@ -128,6 +128,7 @@ function setupAddProject() {
         submitAdd.textContent = "Add Project";
         modalHeader.textContent = "Add Project";
         showButtons();
+        showTodoButtons();
         removePopover();
         hidePopoverTodo();
         toggleAllDetails();
@@ -182,6 +183,7 @@ function setupRenameProject(renameProjectBtn, project) {
         submitRename.textContent = "Rename";
         modalHeader.textContent = "Rename Project";
         showButtons();
+        showTodoButtons();
         removePopover();
         hidePopoverTodo();
         toggleAllDetails();
@@ -266,6 +268,7 @@ function setupDeleteProject(deleteBtn, project, projectBtnContainer) {
         hideButtons(projectBtnContainer);
         hidePopoverTodo();
         toggleAllDetails();
+        showTodoButtons();
     })
 }
 
