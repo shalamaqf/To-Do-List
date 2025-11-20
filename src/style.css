@@ -168,7 +168,8 @@ footer {
     border-radius: 7px;
 }
 
-#project-form-modal {
+#project-form-modal,
+#todo-form-modal {
     padding: 2rem 4rem;
 
     display: flex;
@@ -181,6 +182,8 @@ footer {
     display: flex;
     z-index: 1;
     inset: 0;
+    width: 100%;
+    height: 100%;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
@@ -341,7 +344,8 @@ footer {
     background-color: rgb(255, 255, 255);
 }
 
-#modal-header {
+#modal-header,
+#todo-modal-header {
     color: rgb(235, 190, 45);
     font-size: 2.5rem;
     
@@ -349,8 +353,11 @@ footer {
     margin-bottom: 0.5rem;
 }
 
-#project-title {
-    border: 1px solid rgb(208, 215, 222);;
+#project-title,
+#todo-title, #dueDate,
+#desc, #note,
+#checklist {
+    border: 1px solid rgb(208, 215, 222);
     border-radius: 5px;
     padding: 0.2rem;
     margin-left: 0.5rem;
@@ -358,7 +365,10 @@ footer {
     font-size: 1rem;
 }
 
-#project-title:focus {
+#project-title:focus,
+#todo-title:focus, #dueDate:focus,
+#desc:focus, #note:focus,
+#checklist:focus {
     outline: none;
     border: 2px solid  rgb(208, 215, 222);
 }
@@ -373,7 +383,9 @@ footer {
 }
 
 #submit-project-button,
-#cancel-project-button {
+#cancel-project-button,
+#submit-todo-button,
+#cancel-todo-button {
     padding: 0.4rem;
     font-size: 1rem;
 
@@ -383,4 +395,64 @@ footer {
     border-radius: 5px;
 
     cursor: pointer;
+}
+
+#dueDate,
+.priority-button {
+    cursor: pointer;
+}
+
+#priority-button-container {
+    display: flex;
+    gap: 0.7rem;
+}
+
+.priority-button {
+    display: flex;
+    gap: 0.3rem;
+
+    padding: 0.1rem;
+}
+
+.priority-button.flexible.show {
+    background-color: rgba(80, 200, 120, 0.2);
+    border-color: rgb(80, 200, 120);
+}
+
+.priority-button.important.show {
+    background-color: rgba(255, 220, 80, 0.2);
+    border-color: rgb(255, 220, 80);
+}
+
+.priority-button.urgent.show {
+    background-color: rgba(255, 80, 80, 0.2);
+    border-color: rgb(255, 80, 80);
+}
+
+#flexible-color,
+#important-color,
+#urgent-color {
+    display: inline-block;
+    align-self: center;
+
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 10px;
+}
+
+#flexible-color {
+    background-color: rgb(80, 200, 120);
+}
+
+#important-color {
+    background-color: rgb(255, 220, 80);
+}
+
+#urgent-color {
+    background-color: rgb(255, 80, 80);
+}
+
+#checklist {
+    color: rgb(235, 190, 45);
+    background-color: rgb(235, 190, 45);
 }

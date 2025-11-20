@@ -229,7 +229,7 @@ function setupAddTodoButton() {
         const currentProject = getCurrentProject();
         selectProject.value = currentProject.title;
         form.dataset.mode = "add";
-        submitAdd.textContent = "Add";
+        submitAdd.textContent = "Add Todo";
         modalHeader.textContent = `Add Todo To ${currentProject.title} Project`;
         showModal();
     })
