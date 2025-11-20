@@ -129,7 +129,7 @@ function clearValues(form) {
     form.removeAttribute('data-priority');
     if (priorityButtons) {
         priorityButtons.forEach(button => {
-            button.classList.remove('.show');
+            button.classList.remove('show');
         })
     }
 }
@@ -411,7 +411,7 @@ function populateForm(todo, form) {
     form.dataset.priority = todo.priority;
     const priorityButtons = form.querySelectorAll('.priority-button');
     priorityButtons.forEach(button => {
-        button.classList.toggle('show', button.textContent === todo.priority);
+        button.classList.toggle('show', button.dataset.priority === todo.priority);
     })
 }
 
