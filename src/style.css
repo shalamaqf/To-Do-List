@@ -43,7 +43,9 @@ body {
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+
+    overflow: hidden;
 }
 
 #content-container {
@@ -71,7 +73,10 @@ footer {
 
 #project-container,
 #todo-container {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    min-height: 0;
 }
 
 .header {
@@ -84,6 +89,7 @@ footer {
 #projectList-container,
 #todoList-container {
     padding: 0 1.5rem;
+    min-height: 0;
 
     overflow-y: auto;
 }
