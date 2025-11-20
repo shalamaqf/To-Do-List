@@ -184,21 +184,21 @@ function selectedPriority(form) {
         flexibleButton.classList.add('show');
         importantButton.classList.remove('show');
         urgentButton.classList.remove('show');
-        form.dataset.priority = flexibleButton.textContent;
+        form.dataset.priority = flexibleButton.dataset.priority;
     })
 
     importantButton.addEventListener('click', () => {
         importantButton.classList.add('show');
         flexibleButton.classList.remove('show');
         urgentButton.classList.remove('show');
-        form.dataset.priority = importantButton.textContent;
+        form.dataset.priority = importantButton.dataset.priority;
     })
 
     urgentButton.addEventListener('click', () => {
         urgentButton.classList.add('show');
         flexibleButton.classList.remove('show');
         importantButton.classList.remove('show');
-        form.dataset.priority = urgentButton.textContent;
+        form.dataset.priority = urgentButton.dataset.priority;
     })
 }
 
