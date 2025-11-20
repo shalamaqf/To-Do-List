@@ -110,6 +110,9 @@ footer {
 
 .todoBtn-container {
     align-self: center;
+    display: flex;
+
+    margin-right: 2rem;
 }
 
 .see.todo-btn,
@@ -290,7 +293,7 @@ body {
 .see.todo-btn.hide,
 .edit.todo-btn.hide,
 .delete.todo-btn.hide {
-    visibility: none;
+    visibility: hidden;
 }
 
 .todo-container {

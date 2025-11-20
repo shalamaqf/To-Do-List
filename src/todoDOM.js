@@ -573,6 +573,7 @@ function setupDeleteBtn(deleteBtn, todo, todoBtnContainer) {
     deleteBtn.addEventListener('click', () => {
         toggleAllDetails();
         showButtons();
+        hideTodoButtons(todoBtnContainer);
         removePopover();
         appendPopover(todoBtnContainer);
         setupPopover(todo);
