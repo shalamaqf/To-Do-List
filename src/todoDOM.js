@@ -217,6 +217,7 @@ function setupAddTodoButton() {
         // Toggle button
         toggleAllDetails();
         showButtons();
+        showTodoButtons();
         removePopover();
 
         // Clear and refresh form
@@ -303,7 +304,8 @@ function validateInput(form) {
 function setupDetailsBtn(seeDetailsBtn, todo, todoContainer, todoInfoContainer) {
     seeDetailsBtn.addEventListener('click', () => {
         hidePopover();
-        showButtons()
+        showButtons();
+        showTodoButtons();
         removePopover();
         toggleTodoDetails(todo, seeDetailsBtn, todoContainer, todoInfoContainer);
     })
@@ -376,6 +378,7 @@ function setupEditButton(editBtn, todo, todoContainer) {
         // Toggle buttons
         toggleAllDetails();
         showButtons();
+        showTodoButtons();
         removePopover();
 
         hidePopover();
@@ -550,6 +553,7 @@ function setupPopover(todo) {
 
     noButton.addEventListener('click', () => {
         hidePopover();
+        showTodoButtons();
     })
 }
 
@@ -573,6 +577,7 @@ function setupDeleteBtn(deleteBtn, todo, todoBtnContainer) {
     deleteBtn.addEventListener('click', () => {
         toggleAllDetails();
         showButtons();
+        showTodoButtons();
         hideTodoButtons(todoBtnContainer);
         removePopover();
         appendPopover(todoBtnContainer);
