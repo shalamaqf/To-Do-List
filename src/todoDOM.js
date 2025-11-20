@@ -642,6 +642,25 @@ function hideTodoButtons(todoBtnContainer) {
     deleteBtn.classList.add('hide');
 }
 
+// Create a function show todo buttons
+export function showTodoButtons() {
+    const seeButtons = document.querySelectorAll('.see.todo-btn');
+    const editButtons = document.querySelectorAll('.edit.todo-btn');
+    const deleteButtons = document.querySelectorAll('.delete.todo-btn');
+
+    seeButtons.forEach(button => {
+        button.classList.remove('hide');
+    })
+
+    editButtons.forEach(button => {
+        button.classList.remove('hide');
+    })
+
+    deleteButtons.forEach(button => {
+        button.classList.remove('hide');
+    })
+}
+
 
 // INIT FUNCTION TODO DOM //
 export function initTodoDOM() {
