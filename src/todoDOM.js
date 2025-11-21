@@ -167,6 +167,9 @@ function createTodoFromModal(form, projectTitle) {
 
     // Hide modal
     hideModal();
+
+    // Close alert box
+    closeAlertBox();
     
     // Render the todo
     renderTodo(todo);
@@ -222,7 +225,7 @@ function setupAddTodoButton() {
 
         // Clear and refresh form
         clearValues(form);
-        hidePopover()
+        hidePopover();
         dropDownProjects(form);
 
         // Set the form
