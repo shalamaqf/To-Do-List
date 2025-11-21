@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shippori+Mincho&display=swap" rel="stylesheet">
+<script defer src="main.js"></script></head>
+<body>
+    <div id="content-container">
+        <div id="content-header">
+            <svg id="app-icon" viewBox="0 0 24 24">
+                <path d="m15,0h-2v2h-2V0h-2v2h-2V0h-2v2h-2V0H1v2H0v19c0,1.654,1.346,3,3,3h18 c1.654,0,3-1.346,3-3V2h-1V0h-2v2h-2V0h-2v2h-2V0Zm7,21c0,.551-.448,1-1,1H3 c-.552,0-1-.449-1-1V4h20v17Zm-13-9h-4v-3h4v3Zm0,5h-4v-3h4v3Zm6-5h-4v-3h4v3Zm0, 5h-4v-3h4v3Zm6-8h-4v-3h4v3Zm0,5h-4v-3h4v3Zm0,5h-4v-3h4v3Z"/>></path>
+            </svg>
+            <h1>To Do List App</h1>
+        </div>
+        <div id="project-container">
+            <div class="projectList header">
+                <h2 class="projectList-header text">Projects</h2>
+                <button id="add-project-button">＋</button>
+            </div>
+            <div id="projectList-container"></div>
+        </div>
+        <div id="todo-container">
+            <div class="todoList header">
+                <h2 class="todoList-header text">Todos</h1>
+                <button id="add-todo-button">＋</button>
+            </div>
+            <div id="todoList-container"></div>
+        </div>
+        <footer>
+            <p>© 2025 To Do List App by Shalama</p>
+        </footer>
+    </div>
+
+    <!-- Add Project Modal -->
+    <div class="project modal-container">
+        <div class="form-container">
+            <form id="project-form-modal" action="">
+                <h1 id="modal-header"></h1>
+                <div class="input title-container">
+                    <label for="project-title">Project's Title:</label>
+                    <input type="text" id="project-title" name="input_title" required>
+                </div>
+                <div class="form-button-container">
+                    <button type="submit" id="submit-project-button"></button>
+                    <button type="button" id="cancel-project-button">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Todo Modal -->
+    <div class="todo modal-container">
+        <div class="form-container">
+            <form id="todo-form-modal" action="">
+                <h1 id="todo-modal-header"></h1>
+                <div class="input title-container">
+                    <label for="todo-title">Title:</label>
+                    <input type="text" id="todo-title" name="input_title" required>
+                </div>
+                <div class="input dueDate-container">
+                    <label for="dueDate">Due Date:</label>
+                    <input type="datetime-local" id="dueDate" name="input_dueDate" required>
+                </div>
+                <div class="input desc-container">
+                    <label for="desc">Description:</label>
+                    <input type="text" id="desc" name="input_desc">
+                </div>
+                <div class="input priority-container">
+                    <label>Priority:</label>
+                    <div id="priority-button-container" required>
+                           <button type="button" class="priority-button flexible" data-priority="Flexible">Flexible<span id="flexible-color"></span></button>
+                           <button type="button" class="priority-button important" data-priority="Important">Important<span id="important-color"></span></button>
+                           <button type="button" class="priority-button urgent" data-priority="Urgent">Urgent<span id="urgent-color"></span></button>
+                    </div>
+                </div>
+                <div class="input note-container">
+                    <label for="note">Note:</label>
+                    <input type="text" id="note" name="input_note">
+                </div>
+                <div class="input checklist-container">
+                    <label for="checklist">Completed</label>
+                    <input type="checkbox" id="checklist" name="input_checklist">
+                </div>
+                <div class="input todoProject-container">
+                    <label for="project">Project:</label>
+                    <select name="" id="project" name="input_project">
+                        <option value="option1">Inbox</option>
+                    </select>
+                </div>
+                <div class="form-button-container">
+                    <button type="submit" id="submit-todo-button">Submit</button>
+                    <button type="button" id="cancel-todo-button">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Create an alert -->
+    <div id="custom-alert">
+        <p></p>
+        <button id="closeBtn">🗙</button>
+    </div>
+</body>
+</html>
