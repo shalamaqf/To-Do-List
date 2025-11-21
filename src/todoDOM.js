@@ -307,8 +307,17 @@ function validateInput(form) {
 // Create a function to show the custom alert to validate input
 function showAlert() {
     const alertBox = document.getElementById('custom-alert');
+
+    // Prevent to close alert box when user click on it
+    alertBox.addEventListener('click', (event) => {
+        event.stopPropagation();
+    })
+
     alertBox.querySelector('p').textContent = "Fields are required! (Title, Due Date, Priority)";
     alertBox.classList.add('show');
+
+    // User click anywhere, the alert box will closed
+    document.addEventListener('click', closeAlertBoxOnce);
 }
 
 // Create a function to add event listener to close button in the alert box
@@ -322,6 +331,14 @@ function closeAlert() {
 // Create a function to close the alert box
 function closeAlertBox() {
     document.getElementById('custom-alert').classList.remove('show');
+}
+
+// Create a function to close the alert box when user click anywhere on screen
+function closeAlertBoxOnce() {
+    document.getElementById('custom-alert').classList.remove('show');
+
+    // Remove the event listener from document
+    document.removeEventListener('click', closeAlertBoxOnce);
 }
 
 
@@ -503,6 +520,9 @@ function updateTodoDOM(todo) {
 // FORM SUBMIT LOGIC //
 // Create a function to determine the submit button logic (add/edit)
 function submitLogic(e, form, project) {
+    // Stop propagation
+    e.stopPropagation();
+
     if (form.dataset.mode === "add") {
         createTodoFromModal(form, project.title);
         renderProjectTodos(project);
