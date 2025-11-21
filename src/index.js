@@ -15,7 +15,6 @@ function init() {
     let inbox = projectList.find(p => p.title === "Inbox");
     if (!inbox) {
         inbox = createDefaultProject();
-        projectList.unshift(inbox);
     } else {
         // Move Inbox to the front if it's not already
         const inboxIndex = projectList.indexOf(inbox);
