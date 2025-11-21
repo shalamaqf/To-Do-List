@@ -479,3 +479,32 @@ footer {
 input[type="checkbox"] {
     accent-color: rgb(255, 220, 80);
 }
+
+
+/* Style custom alert */
+#custom-alert.show {
+    gap: 6rem;
+    padding: 2rem 2rem;
+    border-radius: 7px;
+    
+    background-color: rgba(200, 50, 50, 1);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+#closeBtn {
+    background: none;
+    border: none;
+
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1;
+
+    color:  rgb(255, 255, 255);
+
+    cursor: pointer;
+}
+
+#closeBtn:hover {
+    color: rgb(0, 0, 0);
+}
