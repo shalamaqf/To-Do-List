@@ -233,7 +233,7 @@ footer {
 
 /* Style */
 body {
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(255, 255, 255);
 }
 
 #content-container {
@@ -241,11 +241,11 @@ body {
 }
 
 #content-header {
-    background-color: rgb(235, 190, 45);
+    background-color: rgb(255, 255, 255);
 }
 
 #content-header h1 {
-    color: rgb(255, 255, 255);
+    color: rgb(235, 190, 45);
 }
 
 #app-icon {
@@ -253,11 +253,11 @@ body {
     height: 2rem;
     margin-left: -1.25rem;
     margin-right: 0.5rem;
-    fill: rgb(255, 255, 255);
+    fill: rgb(235, 190, 45);
 }
 
 #project-container {
-    border-right: 2px solid rgb(235, 190, 45);
+    border-right: 2px solid rgb(208, 215, 222);
 }
 
 .header {
@@ -358,8 +358,9 @@ body {
 }
 
 footer {
-    background-color: rgb(235, 190, 45);
-    color: rgb(255, 255, 255);
+    border-top: 2px solid rgb(208, 215, 222);
+    background-color:rgb(255, 255, 255);
+    color: rgb(235, 190, 45);
 }
 
 
