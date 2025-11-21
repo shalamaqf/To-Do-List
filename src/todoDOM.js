@@ -291,12 +291,30 @@ function validateInput(form) {
     const dueDate = inputDueDate.value;
 
     if ((title === '') || (dueDate === '') || (!form.dataset.priority)){
-        alert("Fields are required (Title, Due Date, Priority, Project)");
+        showAlert();
+        closeAlert();
         return false;
     }
 
     return true;
 }
+
+
+// Create a function to show the custom alert to validate input
+function showAlert() {
+    const alertBox = document.getElementById('custom-alert');
+    alertBox.querySelector('p').textContent = "Fields are required! (Title, Due Date, Priority)";
+    alertBox.classList.add('show');
+}
+
+// Create a function to close the alert box
+function closeAlert() {
+    const closeBtn = document.getElementById('closeBtn');
+    closeBtn.addEventListener('click', () => {
+        document.getElementById('custom-alert').classList.remove('show');
+    })
+}
+
 
 
 // SEE DETAILS BUTTON LOGIC //
