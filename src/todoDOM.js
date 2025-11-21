@@ -277,6 +277,7 @@ function setupFormTodo() {
     cancelBtn.addEventListener('click', () => {
         clearValues(form);
         hideModal();
+        closeAlertBox();
     })
 }
 
@@ -307,12 +308,17 @@ function showAlert() {
     alertBox.classList.add('show');
 }
 
-// Create a function to close the alert box
+// Create a function to add event listener to close button in the alert box
 function closeAlert() {
     const closeBtn = document.getElementById('closeBtn');
     closeBtn.addEventListener('click', () => {
         document.getElementById('custom-alert').classList.remove('show');
     })
+}
+
+// Create a function to close the alert box
+function closeAlertBox() {
+    document.getElementById('custom-alert').classList.remove('show');
 }
 
 
